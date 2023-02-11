@@ -3,6 +3,7 @@ import './App.css'
 import { FoeDetails } from './components/FoeDetails'
 import { FoeListDrawer } from './components/FoeListDrawer'
 import { FoeReader } from './components/FoeReader'
+import { MainFoesPanel } from './components/MainFoesPanel'
 
 import { foes, traitMap } from './FoeData'
 
@@ -19,13 +20,7 @@ const App = () => {
       <FoeListDrawer />
       <div id="main">
         <h1>ICON Foe Helper</h1>
-        <div id="foes">
-          <ul>
-            {foes.map((foe) => (
-              <li key={foe.name}><FoeDetails foe={foe} /></li>
-            ))}
-          </ul>
-        </div>
+        <MainFoesPanel />
         <div id="traits">
           <ul>
             {traits.map((trait) => (

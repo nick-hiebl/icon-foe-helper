@@ -5,6 +5,7 @@ import { FoeTitle } from './FoeDetails'
 
 import { foes } from '../FoeData'
 import { Foe } from '../types'
+import { useFoes } from '../state/Foes'
 
 const sortedFoes = foes.slice()
 
@@ -92,6 +93,8 @@ export const FoeListDrawer = () => {
     [query],
   )
 
+  const [, { createFoe }] = useFoes()
+
   return (
     <Drawer>
       <div>
@@ -113,7 +116,7 @@ export const FoeListDrawer = () => {
             <p className="section-head"><span>{category.section}</span></p>
             <ul>
               {category.foes.map((foe) => (
-                <li key={foe.name}>
+                <li key={foe.name} onClick={() => createFoe(foe)}>
                   <FoeTitle foe={foe} />
                 </li>
               ))}
