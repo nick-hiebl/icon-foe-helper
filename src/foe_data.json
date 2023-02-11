@@ -881,7 +881,8 @@
         {
             "name": "_imperial",
             "tags": [
-                "template"
+                "template",
+                "imperial"
             ],
             "traits": [
                 {
@@ -1164,7 +1165,8 @@
         {
             "name": "_ruinbeast",
             "tags": [
-                "template"
+                "template",
+                "ruinbeast"
             ],
             "traits": [
                 {

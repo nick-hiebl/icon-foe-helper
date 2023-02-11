@@ -38,8 +38,25 @@ ul {
   padding: 0;
 }
 
+.drawer::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer > .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #888;
+}
+
+.drawer > .close-button:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 .drawer div {
-  padding-left: 16px;
+  padding: 0 16px;
 }
 
 .drawer input {
@@ -64,4 +81,34 @@ ul {
 .drawer li:hover {
   background-color: #00000020;
   transition: background-color 0.1s;
+}
+
+.section-head {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.section-head > span {
+  position: relative;
+  display: inline-block;
+  color: #666;
+}
+
+.section-head > span:before, .section-head > span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-bottom: 2px solid #aaa;
+  width: 1000px;
+  margin: 0 16px;
+}
+
+.section-head > span:before {
+  right: 100%;
+}
+
+.section-head > span:after {
+  left: 100%;
 }

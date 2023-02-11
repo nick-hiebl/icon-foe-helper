@@ -23,6 +23,7 @@ export const Drawer = ({ children }: Props) => {
 
   return (
     <div className={isOpen ? 'drawer onscreen' : 'drawer'}>
+      <span className="close-button" onClick={() => setOpen(false)}>x</span>
       {children}
     </div>
   )
