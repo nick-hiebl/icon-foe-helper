@@ -457,7 +457,7 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: [D]+fray. Miss: fray. Area effect: All foes adjacent to the attack target take 2 damage."
+                    "text": "On hit: [D] + fray. Miss: fray. Area effect: All foes adjacent to the attack target take 2 damage."
                 },
                 {
                     "name": "Strike",
@@ -519,7 +519,7 @@
                         "ranged attack",
                         "range 6 blast 1"
                     ],
-                    "text": "On hit: 2[D]+fray. Miss or area effect: fray. Effect: Attack target is branded. This action can also be made as a close blast 1 melee attack."
+                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: Attack target is branded. This action can also be made as a close blast 1 melee attack."
                 },
                 {
                     "name": "Fear",
@@ -703,7 +703,7 @@
                         "melee attack",
                         "+1 boon"
                     ],
-                    "text": "On hit: [D]+fray. Miss: fray. Effect: Critical hit (+[D]) against bloodied characters. Effect: Dash 1 before and after the attack."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Critical hit (+[D]) against bloodied characters. Effect: Dash 1 before and after the attack."
                 },
                 {
                     "name": "Vile",
@@ -783,7 +783,7 @@
                         "melee attack",
                         "recharge 6"
                     ],
-                    "text": "Attack: On hit: 3[D]+fray and foe is stunned and shoved 1. Miss: fray damage and foe is dazed. Effect: +1 boon against dazed characters."
+                    "text": "Attack: On hit: 3[D] + fray and foe is stunned and shoved 1. Miss: fray damage and foe is dazed. Effect: +1 boon against dazed characters."
                 }
             ],
             "also": [
@@ -963,7 +963,7 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: [D]+fray. Miss: fray. Critical hit: Foe is stunned."
+                    "text": "On hit: [D] + fray. Miss: fray. Critical hit: Foe is stunned."
                 },
                 {
                     "name": "Blunderbuss",
@@ -1131,7 +1131,7 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "On hit: [D]+fray. Miss: fray. Effect: Up to two allies in range 3 can dash 2 spaces."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Up to two allies in range 3 can dash 2 spaces."
                 },
                 {
                     "name": "Coordinate Strikes",
@@ -1253,7 +1253,7 @@
                     "tags": [
                         "recharge 6"
                     ],
-                    "text": "All non-howler characters in a close blast 1 area effect must save or take [D]+fray and be stunned. Effect: Can be used as an Interrupt when bloodied."
+                    "text": "All non-howler characters in a close blast 1 area effect must save or take [D] + fray and be stunned. Effect: Can be used as an Interrupt when bloodied."
                 },
                 {
                     "name": "Iron Grip",
@@ -1370,10 +1370,6 @@
         },
         {
             "name": "Archon",
-            "stats": {
-                "hp": 80,
-                "vitality": 20
-            },
             "actions": [
                 {
                     "name": "Blackheart",
@@ -1382,7 +1378,7 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: Deal [D]+fray. Miss: fray. Effect: Deals 2 damage to all foes adjacent to the archon or their target Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, dazed, or winded."
+                    "text": "On hit: Deal [D] + fray. Miss: fray. Effect: Deals 2 damage to all foes adjacent to the archon or their target Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, dazed, or winded."
                 },
                 {
                     "name": "Iron Fist",

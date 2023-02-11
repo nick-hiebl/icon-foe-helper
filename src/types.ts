@@ -1,6 +1,6 @@
 export interface FoeStats {
   vitality: number
-  hp: number
+  hp: number | string
   speed: number
   dash: number
   defense: number

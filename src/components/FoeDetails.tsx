@@ -111,7 +111,7 @@ export const FoeStats = ({ foe }: Props) => {
     <>
       {isOpen && (
         <ul>
-          <li><span style={BOLD}>Vitality:</span> {foe.stats.vitality}</li>
+          <li><span style={BOLD}>VIT:</span> {foe.stats.vitality}</li>
           <li><span style={BOLD}>HP:</span> {foe.stats.hp}</li>
           <li><span style={BOLD}>Speed:</span> {foe.stats.speed} {`(Dash ${foe.stats.dash})`}</li>
           <li><span style={BOLD}>Defense:</span> {foe.stats.defense}</li>

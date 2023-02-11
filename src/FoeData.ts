@@ -90,6 +90,14 @@ export function produceFoe(rawFoe: RawFoe, strict = true): [Foe, string[]] {
     errors.push(error)
   }
 
+  if (newFoe.stats.hp) {
+    if (newFoe.traits.some((trait) => trait.name === 'Elite')) {
+      newFoe.stats.hp = parseInt(newFoe.stats.hp.toString(), 10) * 2
+    } else if (newFoe.traits.some((trait) => trait.name === 'Legend')) {
+      newFoe.stats.hp += ' (per player)'
+    }
+  }
+
   if ((rawFoe as RawFoeLegend).phaseDescription) {
     const newLegend = newFoe as FoeLegend,
       rawLegend = rawFoe as RawFoeLegend

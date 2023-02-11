@@ -161,7 +161,10 @@ function rawFoeFromText(text: string): RawFoe {
   }
 
   if (stats.hp && !stats.vitality) {
-    stats.vitality = Math.ceil(stats.hp / 4)
+    if (!Number.isInteger(stats.hp)) {
+      console.error('Found non-number hp:', rawFoe.name)
+    }
+    stats.vitality = Math.ceil((stats.hp as number) / 4)
   }
 
   if (Object.keys(stats).length === 0) {
