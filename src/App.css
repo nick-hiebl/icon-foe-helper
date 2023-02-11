@@ -1,0 +1,67 @@
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+#main {
+  display: grid;
+  max-width: 1300px;
+  margin: 0 auto;
+  grid-template-columns: repeat(13, 1fr);
+}
+
+#main h1 {
+  grid-column: 1 / 14;
+}
+
+#foes {
+  grid-column: 1 / 10;
+}
+
+#traits {
+  grid-column: 10 / 14;
+}
+
+.drawer {
+  position: fixed;
+  left: -420px;
+  top: 0;
+  background-color: white;
+  box-shadow: 0px 0px 5px #88888888;
+  height: 100%;
+  overflow-y: scroll;
+  transition: left 0.2s ease-in;
+  width: 370px;
+  padding: 0;
+}
+
+.drawer div {
+  padding-left: 16px;
+}
+
+.drawer input {
+  padding: 4px;
+}
+
+.drawer.onscreen {
+  left: 0;
+  transition: left 0.2s ease-out;
+}
+
+.drawer h3 {
+  margin: 0;
+}
+
+.drawer li {
+  padding: 16px;
+  background-color: white;
+  transition: background-color 0.1s;
+}
+
+.drawer li:hover {
+  background-color: #00000020;
+  transition: background-color 0.1s;
+}
