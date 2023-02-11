@@ -13,6 +13,10 @@
             "text": "Start combat with Vigor 1."
         },
         {
+            "name": "Attack",
+            "text": "Characters can only make one ability with the attack tag per turn."
+        },
+        {
             "name": "Aura of Rot",
             "text": "The creature has aura 2. Foes that start or end their turn in the aura lose all vigor, then take 2 piercing damage."
         },
@@ -131,6 +135,10 @@
         {
             "name": "Receive Orders",
             "text": "When an imperial that's not a commanding officer starts its turn in range of an imperial command aura, it recharges all of its abilities."
+        },
+        {
+            "name": "Repeatable",
+            "text": "This action is repeatable any number of times in a turn, ignoring the no repeats rule."
         },
         {
             "name": "Relict: Monsters",
@@ -303,7 +311,7 @@
             "also": [],
             "traits": [
                 {
-                    "name": "Monsters"
+                    "name": "Relict: Monsters"
                 },
                 {
                     "name": "Faction Blight: Electrified"

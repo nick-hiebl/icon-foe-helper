@@ -1,9 +1,9 @@
-import { CSSProperties, Fragment, useState } from 'react'
+import { CSSProperties, Fragment, ReactNode, useState } from 'react'
 
 import { traitMap } from '../FoeData'
 
 import { Foe, FoeLegend, Trait } from '../types'
-import { FoeAction } from './FoeAction'
+import { FoeAction, TraitTooltip } from './FoeAction'
 
 interface Props {
   foe: Foe
@@ -127,13 +127,9 @@ export const FoeStats = ({ foe }: Props) => {
 }
 
 export const FoeTrait = ({ trait }: { trait: Trait }) => {
-  const traitData = traitMap.get(trait.name)
-
   const text = renderTrait(trait)
 
-  return (
-    <span title={traitData?.text || 'No trait found'}>{text}</span>
-  )
+  return <TraitTooltip traitName={trait.name}>{text}</TraitTooltip>
 }
 
 export const FoePhases = ({ foe }: Props) => {

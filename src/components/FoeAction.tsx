@@ -1,5 +1,6 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, Fragment, ReactNode } from 'react'
 
+import { traitMap } from '../FoeData'
 import { Action } from '../types'
 
 interface Props {
@@ -29,10 +30,35 @@ export const FoeAction = ({ action }: Props) => {
       <span style={BOLD}>
         {action.name}
         {' ('}
-        {[renderCost(action), ...action.tags].join(', ')}
+        {renderCost(action)}
+        {action.tags.map((tag) => (
+          <Fragment key={tag}>
+            {', '}
+            <ActionTag tag={tag} />
+          </Fragment>
+        ))}
         {'): '}
       </span>
       <span>{action.text}</span>
     </p>
   )
+}
+
+interface TraitTooltipProps {
+  children: ReactNode
+  traitName: string
+}
+
+export const TraitTooltip = ({ children, traitName }: TraitTooltipProps) => {
+  const traitData = traitMap.get(traitName.toLocaleLowerCase())
+
+  const tooltip = traitData
+    ? `${traitData.name}\n${traitData.text}`
+    : 'No trait found'
+
+  return <span title={tooltip}>{children}</span>
+}
+
+export const ActionTag = ({ tag }: { tag: string }) => {
+  return <TraitTooltip traitName={tag}>{tag}</TraitTooltip>
 }

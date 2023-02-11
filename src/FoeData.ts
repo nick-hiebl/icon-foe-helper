@@ -126,5 +126,5 @@ export const foes = Array.from(enemyMap.entries())
 export const traitMap = new Map<string, TraitInfo>()
 
 for (const trait of FOE_DATA.traits) {
-  traitMap.set(trait.name, trait)
+  traitMap.set(trait.name.toLocaleLowerCase(), trait)
 }
