@@ -1,28 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
+
+import { useKeyListener } from '../utils/useEventListener'
+
+import './Drawer.css'
 
 interface Props {
   children: React.ReactNode
+  right?: boolean
 }
 
-export const Drawer = ({ children }: Props) => {
+export const Drawer = ({ children, right }: Props) => {
   const [isOpen, setOpen] = useState(false)
 
-  useEffect(() => {
-    const onKeyDown = (e: { key: string }) => {
-      if (e.key === '[') {
-        setOpen((open) => !open)
-      }
-    }
+  const toggleOpen = useCallback(() => setOpen((open) => !open), [])
 
-    document.addEventListener('keydown', onKeyDown)
+  useKeyListener(right ? ']' : '[', toggleOpen)
 
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  })
+  const coreClass = `drawer ${right ? 'drawer-right' : 'drawer-left'}`
 
   return (
-    <div className={isOpen ? 'drawer onscreen' : 'drawer'}>
+    <div className={isOpen ? `${coreClass} onscreen` : coreClass}>
       <span className="close-button" onClick={() => setOpen(false)}>x</span>
       {children}
     </div>

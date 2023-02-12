@@ -1,0 +1,18 @@
+li {
+  position: relative;
+  padding-right: 16px;
+}
+
+li > .cross {
+  right: 4px;
+  top: 0px;
+  position: absolute;
+  visibility: hidden;
+  color: #000000aa;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+li:hover > .cross {
+  visibility: visible;
+}

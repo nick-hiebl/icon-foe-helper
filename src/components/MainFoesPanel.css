@@ -1,0 +1,17 @@
+#foes {
+  grid-column: 1 / 10;
+}
+
+#foes > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: -16px;
+}
+
+.main-foe {
+padding: 8px 16px;
+}
+
+.focused.main-foe {
+  background-color: #00000011;
+}

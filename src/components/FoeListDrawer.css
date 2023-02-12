@@ -1,0 +1,29 @@
+.section-head {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.section-head > span {
+  position: relative;
+  display: inline-block;
+  color: #666;
+}
+
+.section-head > span:before, .section-head > span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-bottom: 2px solid #aaa;
+  width: 1000px;
+  margin: 0 16px;
+}
+
+.section-head > span:before {
+  right: 100%;
+}
+
+.section-head > span:after {
+  left: 100%;
+}

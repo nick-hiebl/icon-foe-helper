@@ -1,0 +1,70 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  box-shadow: 0px 0px 5px #88888888;
+  height: 100%;
+  overflow-y: scroll;
+  width: 370px;
+  padding: 0;
+}
+
+.drawer-left {
+  left: -420px;
+  transition: left 0.2s ease-in;
+}
+
+.drawer-right {
+  right: -420px;
+  transition: right 0.2s ease-in;
+}
+
+.drawer::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer > .close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #888;
+}
+
+.drawer > .close-button:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.drawer div {
+  padding: 0 16px;
+}
+
+.drawer input {
+  padding: 4px;
+}
+
+.drawer-left.onscreen {
+  left: 0;
+  transition: left 0.2s ease-out;
+}
+
+.drawer-right.onscreen {
+  right: 0;
+  transition: right 0.2s ease-out;
+}
+
+.drawer h3 {
+  margin: 0;
+}
+
+.drawer li {
+  padding: 16px;
+  background-color: white;
+  transition: background-color 0.1s;
+}
+
+.drawer li:hover {
+  background-color: #00000014;
+  transition: background-color 0.1s;
+}

@@ -7,15 +7,12 @@ import { foes } from '../FoeData'
 import { Foe } from '../types'
 import { useFoes } from '../state/Foes'
 
+import './FoeListDrawer.css'
+import { contains, search } from '../utils/bucket'
+
 const sortedFoes = foes.slice()
 
 sortedFoes.sort((a, b) => a.name.localeCompare(b.name))
-
-type SearchResults = { section: string; foes: Foe[] }[]
-
-function contains(outer: string, query: string) {
-  return outer.toLocaleLowerCase().includes(query)
-}
 
 enum SortLevel {
   name = 10,
@@ -52,35 +49,8 @@ function foeMatchLevel(searchQuery: string, foe: Foe): SortLevel {
   return 0
 }
 
-function bucket<T, K>(items: T[], labeler: (t: T) => K): Map<K, T[]> {
-  const map = new Map<K, T[]>()
-
-  items.forEach((item) => {
-    const key = labeler(item)
-
-    const list = map.get(key) || []
-
-    map.set(key, list)
-
-    list.push(item)
-  })
-
-  return map
-}
-
-function searchFoes(searchQuery: string): SearchResults {
-  if (!searchQuery) {
-    return [{ section: 'All', foes: sortedFoes }]
-  }
-
-  const buckets = bucket(sortedFoes, (foe) => foeMatchLevel(searchQuery, foe))
-
-  return sortLevelCategories
-    .map(([key, label]) => ({
-      section: label,
-      foes: buckets.get(key) || []
-    }))
-    .filter((category) => category.foes.length > 0)
+function searchFoes(searchQuery: string) {
+  return search(sortedFoes, sortLevelCategories, foeMatchLevel, searchQuery)
 }
 
 export const FoeListDrawer = () => {
@@ -105,8 +75,6 @@ export const FoeListDrawer = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(
               e.currentTarget.value
-                .replace('[', '')
-                .replace(']', '')
           )}
         />
       </div>
@@ -115,7 +83,7 @@ export const FoeListDrawer = () => {
           <Fragment key={category.section}>
             <p className="section-head"><span>{category.section}</span></p>
             <ul>
-              {category.foes.map((foe) => (
+              {category.items.map((foe) => (
                 <li key={foe.name} onClick={() => createFoe(foe)}>
                   <FoeTitle foe={foe} />
                 </li>

@@ -1,11 +1,12 @@
 import './App.css'
 
-import { FoeDetails } from './components/FoeDetails'
 import { FoeListDrawer } from './components/FoeListDrawer'
 import { FoeReader } from './components/FoeReader'
 import { MainFoesPanel } from './components/MainFoesPanel'
+import { TraitDrawer } from './components/TraitDrawer'
+import { TraitPanel } from './components/TraitPanel'
 
-import { foes, traitMap } from './FoeData'
+import { traitMap } from './FoeData'
 
 const traits = Array.from(traitMap.entries()).map(([_, t]) => t)
 traits.sort((a, b) => a.name.localeCompare(b.name))
@@ -18,18 +19,11 @@ const App = () => {
   return (
     <div className="App">
       <FoeListDrawer />
+      <TraitDrawer />
       <div id="main">
         <h1>ICON Foe Helper</h1>
         <MainFoesPanel />
-        <div id="traits">
-          <ul>
-            {traits.map((trait) => (
-              <li key={trait.name}>
-                {trait.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <TraitPanel />
       </div>
     </div>
   )
