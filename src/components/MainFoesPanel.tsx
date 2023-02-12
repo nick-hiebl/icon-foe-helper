@@ -26,7 +26,7 @@ export const MainFoesPanel = () => {
 }
 
 export const MainFoeDetails = ({ foeInfo }: { foeInfo: FoeInfo }) => {
-  const [{ focusedId, isEditing }, { focus }] = useFoes()
+  const [{ focusedId, isEditing }, { focus, removeFoe }] = useFoes()
 
   const isFocused = focusedId === foeInfo.id
   const showsFocused = isEditing && isFocused
@@ -36,6 +36,11 @@ export const MainFoeDetails = ({ foeInfo }: { foeInfo: FoeInfo }) => {
       className={showsFocused ? 'focused main-foe' : 'main-foe'}
       onClick={() => isEditing && focus(foeInfo.id)}
     >
+      {showsFocused && (
+        <span className="cross" onClick={() => removeFoe(foeInfo.id)}>
+          x
+        </span>
+      )}
       <FoeDetails foe={foeInfo.actualFoe} />
     </div>
   )
