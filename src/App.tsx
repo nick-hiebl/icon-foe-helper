@@ -1,5 +1,7 @@
 import './App.css'
 
+import '../node_modules/rpg-awesome/css/rpg-awesome.min.css'
+
 import { FoeListDrawer } from './components/FoeListDrawer'
 import { FoeReader } from './components/FoeReader'
 import { MainFoesPanel } from './components/MainFoesPanel'

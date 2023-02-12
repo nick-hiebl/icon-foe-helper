@@ -50,6 +50,7 @@ export interface Phase {
 export interface Trait {
   name: string
   value?: string
+  special?: boolean
 }
 
 export interface TraitInfo extends Trait {

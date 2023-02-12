@@ -1,9 +1,9 @@
-import { CSSProperties, Fragment, ReactNode, useState } from 'react'
-
-import { traitMap } from '../FoeData'
+import { CSSProperties, Fragment, useState } from 'react'
 
 import { Foe, FoeLegend, Trait } from '../types'
 import { FoeAction, TraitTooltip } from './FoeAction'
+
+import './FoeDetails.css'
 
 interface Props {
   foe: Foe
@@ -108,28 +108,32 @@ export const FoeStats = ({ foe }: Props) => {
   const [isOpen, setOpen] = useState(!hideableStats)
 
   return (
-    <>
+    <div>
       {isOpen && (
-        <ul>
-          <li><span style={BOLD}>VIT:</span> {foe.stats.vitality}</li>
-          <li><span style={BOLD}>HP:</span> {foe.stats.hp}</li>
-          <li><span style={BOLD}>Speed:</span> {foe.stats.speed} {`(Dash ${foe.stats.dash})`}</li>
-          <li><span style={BOLD}>Defense:</span> {foe.stats.defense}</li>
-          <li><span style={BOLD}>Fray damage:</span> {foe.stats.fray}</li>
-          <li><span style={BOLD}>[D]:</span> {foe.stats.damage_die}</li>
+        <ul className="statblock">
+          <li><strong>VIT:</strong> {foe.stats.vitality}</li>
+          <li><strong>HP:</strong> {foe.stats.hp}</li>
+          <li><strong>Speed:</strong> {foe.stats.speed} {`(Dash ${foe.stats.dash})`}</li>
+          <li><strong>Defense:</strong> {foe.stats.defense}</li>
+          <li><strong>Fray damage:</strong> {foe.stats.fray}</li>
+          <li><strong>[D]:</strong> {foe.stats.damage_die}</li>
         </ul>
       )}
       {hideableStats && (
         <button onClick={() => setOpen((open) => !open)}>{isOpen ? '[-]' : '[+]'}</button>
       )}
-    </>
+    </div>
   )
 }
 
 export const FoeTrait = ({ trait }: { trait: Trait }) => {
   const text = renderTrait(trait)
 
-  return <TraitTooltip traitName={trait.name}>{text}</TraitTooltip>
+  return (
+    <TraitTooltip traitName={trait.name} underline={trait.special}>
+      {text}
+    </TraitTooltip>
+  )
 }
 
 export const FoePhases = ({ foe }: Props) => {
@@ -141,11 +145,11 @@ export const FoePhases = ({ foe }: Props) => {
 
   return (
     <>
-      <p><span style={BOLD}>Phases: </span>{legend.phaseDescription}</p>
+      <p><strong>Phases: </strong>{legend.phaseDescription}</p>
       <ul>
         {legend.phases.map((phase) => (
           <li key={phase.name}>
-            <p style={BOLD}>{phase.name}</p>
+            <p><strong>{phase.name}</strong></p>
             {phase.traits.length > 0 && (
               <TraitBlock traits={phase.traits} />
             )}

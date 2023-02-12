@@ -2,7 +2,8 @@
     "traits": [
         {
             "name": "Aetherwall",
-            "text": "Gains automatic cover against all attacks that originate outside of range 2 from them (Cover grants resistance against ranged attacks, reducing it by 1/2)."
+            "text": "Gains automatic cover against all attacks that originate outside of range 2 from them (Cover grants resistance against ranged attacks, reducing it by 1/2).",
+            "altText": "Damage from beyond range 2 is halved."
         },
         {
             "name": "Armor X",
@@ -18,7 +19,8 @@
         },
         {
             "name": "Aura of Rot",
-            "text": "The creature has aura 2. Foes that start or end their turn in the aura lose all vigor, then take 2 piercing damage."
+            "text": "The creature has aura 2. Foes that start or end their turn in the aura lose all vigor, then take 2 piercing damage.",
+            "altText": "Aura 2: clears enemy vigor and causes 2 piercing damage on turn start or end."
         },
         {
             "name": "Automata",
@@ -46,7 +48,8 @@
         },
         {
             "name": "Defiance",
-            "text": "Prevents hit points from being reduced past 1 hp. When this triggers, remove this effect and character becomes immune to all damage for the rest of the current turn."
+            "text": "Prevents hit points from being reduced past 1 hp. When this triggers, remove this effect and character becomes immune to all damage for the rest of the current turn.",
+            "altText": "Become invincible for the rest of the turn when first reduced past 1 hp."
         },
         {
             "name": "Divine Presence",
@@ -89,6 +92,10 @@
             "text": "Sturdy and +1 action while bloodied."
         },
         {
+            "name": "Heavy Armor",
+            "text": "Resistant to abilities used from adjacent spaces."
+        },
+        {
             "name": "Hunter in the Mist",
             "text": "Attacks are a critical hit (+[D]) against characters with no allies or allied summons adjacent."
         },
@@ -110,7 +117,8 @@
         },
         {
             "name": "Legion of the Dead",
-            "text": "Relict are a legion of mindless husks, cursed with an undying existence. This gives all relict except Legends the following trait: This character has a chance to rise again when defeated. Roll 1d6 at the start of each round that this character is defeated. On a 4+, this character gets back up at 25% hp, returning it from defeated, and can take a turn normally this round. If defeated again, this character disintegrates and is removed from the battlefield. If all characters with this trait are defeated, it deactivates."
+            "text": "Relict are a legion of mindless husks, cursed with an undying existence. This gives all relict except Legends the following trait: This character has a chance to rise again when defeated. Roll 1d6 at the start of each round that this character is defeated. On a 4+, this character gets back up at 25% hp, returning it from defeated, and can take a turn normally this round. If defeated again, this character disintegrates and is removed from the battlefield. If all characters with this trait are defeated, it deactivates.",
+            "altText": "After dying, 50% chance to revive at 25% hp on their turn, once."
         },
         {
             "name": "Mob",
@@ -185,6 +193,11 @@
             "text": "Gain a shield that goes over your hit points, equal to X times your vitality value. Damage goes to Vigor before Hit Points. Vigor does not stack, and when you gain Vigor you can choose to keep the old value or gain the new value. Lose all vigor at the end of combat."
         },
         {
+            "name": "Vulnerable",
+            "text": "Applies +1 damage every time a character takes damage, for each separate instance of damage.",
+            "altText": "+1 damage per hit received."
+        },
+        {
             "name": "True Strike",
             "text": "Ignores dodge, blind, evasion, and stealth."
         }
@@ -256,7 +269,8 @@
                     "name": "Diaga",
                     "cost": "light",
                     "tags": [],
-                    "text": "An ally in range 4 can end a status or blight. If that ally is bloodied, they also gain vigor 1."
+                    "text": "An ally in range 4 can end a status or blight. If that ally is bloodied, they also gain vigor 1.",
+                    "altText": "Clear a status/blight. Bloodied: Vigor."
                 }
             ],
             "stats": {
@@ -479,7 +493,8 @@
                     "name": "Death March",
                     "cost": "light",
                     "tags": [],
-                    "text": "The Wight and all adjacent allies may move 1 space in the same direction, ignoring engagement, then each may deal 2 damage to an adjacent foe."
+                    "text": "This character and all adjacent allies may move 1 space in the same direction, ignoring engagement, then each may deal 2 damage to an adjacent foe.",
+                    "altText": "Me + adjacent allies move 1 space, then hit adjacent foe for 2."
                 }
             ],
             "also": [
@@ -531,7 +546,8 @@
                         "ranged attack",
                         "range 6 blast 1"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: Attack target is branded. This action can also be made as a close blast 1 melee attack."
+                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: Attack target is branded. This action can also be made as a close blast 1 melee attack.",
+                    "altText": "Heavy attack with blast 1, range 6 or melee range 2. Brands target."
                 },
                 {
                     "name": "Fear",
@@ -539,13 +555,15 @@
                     "tags": [
                         "multimark"
                     ],
-                    "text": "Mark a foe in range 6. While marked, that foe gains +1 curse on attacks and saves unless adjacent to an ally. If they end their turn adjacent to an ally, they can clear this mark."
+                    "text": "Mark a foe in range 6. While marked, that foe gains +1 curse on attacks and saves unless adjacent to an ally. If they end their turn adjacent to an ally, they can clear this mark.",
+                    "altText": "Curse foe in range 6 for attacks and curses until they find a friend."
                 },
                 {
                     "name": "Grasping Dead",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 6 takes 2 damage, then must save. On a failed save, spectral hands grab and immobilize them until the end of their next turn. That character or an adjacent ally can use an action to end this effect, freeing them."
+                    "text": "A foe in range 6 takes 2 damage, then must save. On a failed save, spectral hands grab and immobilize them until the end of their next turn. That character or an adjacent ally can use an action to end this effect, freeing them.",
+                    "altText": "Foe in range 6 takes 2 damage then saves or is frozen."
                 },
                 {
                     "name": "Raise Dead",
@@ -553,7 +571,8 @@
                     "tags": [
                         "1/combat"
                     ],
-                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round."
+                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round.",
+                    "altText": "Resurrect defeated ally in range 4 at 50% hp."
                 }
             ],
             "also": [
@@ -562,7 +581,8 @@
             ],
             "traits": [
                 {
-                    "name": "Defiance"
+                    "name": "Defiance",
+                    "special": true
                 }
             ]
         },
@@ -573,10 +593,12 @@
             ],
             "traits": [
                 {
-                    "name": "Heavy Armor"
+                    "name": "Heavy Armor",
+                    "special": true
                 },
                 {
-                    "name": "Aura of Rot"
+                    "name": "Aura of Rot",
+                    "special": true
                 }
             ],
             "tags": [
@@ -594,7 +616,8 @@
                         "8",
                         "pierce"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss: fray damage. Effect: Foe is electrified. Area effect: A foe in range 3 from the attack target also takes fray damage, then must save. If they fail the save, this effect repeats, choosing a new foe in range 3 of them instead. A character can only be chosen once by this effect, but it can chain any number of times. Electrified characters take +1 curse on this save."
+                    "text": "On hit: 2[D] + fray. Miss: fray damage. Effect: Foe is electrified. Area effect: A foe in range 3 from the attack target also takes fray damage, then must save. If they fail the save, this effect repeats, choosing a new foe in range 3 of them instead. A character can only be chosen once by this effect, but it can chain any number of times. Electrified characters take +1 curse on this save.",
+                    "altText": "Heavy attack. Effect: electrify. Chain to foes in range 3, ending if saved."
                 },
                 {
                     "name": "Shift",
@@ -606,7 +629,8 @@
                     "name": "Shock",
                     "cost": "light",
                     "tags": [],
-                    "text": "A character in range 8 is vulnerable. Vulnerable foes take piercing fray damage and become electrified."
+                    "text": "A character in range 8 is vulnerable. Vulnerable foes take piercing fray damage and become electrified.",
+                    "altText": "Foe in range 8 -> Vulnerable -> Fray + electrify."
                 }
             ],
             "also": [
@@ -618,7 +642,8 @@
                     "name": "Flying"
                 },
                 {
-                    "name": "Ethereal"
+                    "name": "Ethereal",
+                    "special": true
                 }
             ]
         },
@@ -634,7 +659,8 @@
                         "pierce",
                         "recharge 6"
                     ],
-                    "text": "On hit: [D] three times. Miss or area effect: [D]. Effect: All foes must save or become electrified andvulnerable. Electrified characters fail the save."
+                    "text": "On hit: [D] three times. Miss or area effect: [D]. Effect: All foes must save or become electrified and vulnerable. Electrified characters fail the save.",
+                    "altText": "Hit: [D],[D],[D]. Miss/AoE: [D]. Effect: Save (unless electrified) or electrified + vulnerable"
                 }
             ],
             "also": [
@@ -655,15 +681,17 @@
                     "name": "Lightning Bolter",
                     "cost": "light",
                     "tags": [
-                        "Ranged attack8"
+                        "Ranged attack 8"
                     ],
-                    "text": "On hit: [D] + fray and electrify. Miss: fray. Effect: Ignores adjacency penalties for ranged attacks. Foes in range 2 of the target take fray damage."
+                    "text": "On hit: [D] + fray and electrify. Miss: fray. Effect: Ignores adjacency penalties for ranged attacks. Foes in range 2 of the target take fray damage.",
+                    "altText": "Light attack. Effect: range 2 splash to foes], ignore adjacency penalties."
                 },
                 {
                     "name": "Discharge Bolt",
                     "cost": "light",
                     "tags": [],
-                    "text": "The Automota shoots a line 8 area effect. Characters in the area are electrified. Electrified characters take [D]."
+                    "text": "The Automota shoots a line 8 area effect. Characters in the area are electrified. Electrified characters take [D].",
+                    "altText": "Line 8 -> Electrified -> [D]."
                 },
                 {
                     "name": "Full auto",
@@ -671,7 +699,8 @@
                     "tags": [
                         "stance"
                     ],
-                    "text": "While in this stance, the this character's is immobile, but all their attacks deal bonus damage, pierce, ignore cover, and gain +1 boon. They lose this stance if they are shoved or moved for any reason."
+                    "text": "While in this stance, the this character's is immobile, but all their attacks deal bonus damage, pierce, ignore cover, and gain +1 boon. They lose this stance if they are shoved or moved for any reason.",
+                    "altText": "Can't move, deal bonus damage, pierce, ignore cover, +1 boon. Exits when moved/shoved."
                 },
                 {
                     "name": "Speed Clip",
@@ -679,7 +708,8 @@
                     "tags": [
                         "recharge 6"
                     ],
-                    "text": "The Automata enters Full Auto."
+                    "text": "The Automata enters Full Auto.",
+                    "altText": "Go Full Auto."
                 }
             ],
             "also": [
@@ -688,7 +718,8 @@
             ],
             "traits": [
                 {
-                    "name": "Automata"
+                    "name": "Automata",
+                    "special": true
                 }
             ]
         },
@@ -715,13 +746,15 @@
                         "melee attack",
                         "+1 boon"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: Critical hit (+[D]) against bloodied characters. Effect: Dash 1 before and after the attack."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Critical hit (+[D]) against bloodied characters. Effect: Dash 1 before and after the attack.",
+                    "altText": "Light attack +1 boon. Can crit. Effect: Dash 1 before and after."
                 },
                 {
                     "name": "Vile",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 5 is slowed, and must save or take take 1 piercing damage for each space they move until the end of their next turn."
+                    "text": "A foe in range 5 is slowed, and must save or take take 1 piercing damage for each space they move until the end of their next turn.",
+                    "altText": "Slow foe in range 5, save or take 1 piercing for each square they move next turn."
                 },
                 {
                     "name": "Foul Play",
@@ -729,7 +762,8 @@
                     "tags": [
                         "recharge 5+"
                     ],
-                    "text": "Teleport 3, then deal [D] to an adjacent foe. Can repeat this effect, but must choose a different foe each time unless no other foes are in range, or this effect has triggered four times."
+                    "text": "Teleport 3, then deal [D] to an adjacent foe. Can repeat this effect, but must choose a different foe each time unless no other foes are in range, or this effect has triggered four times.",
+                    "altText": "Teleport 3, then deal [D] to an adjacent foe. Can chain up to four times."
                 }
             ],
             "also": [
@@ -737,10 +771,12 @@
             ],
             "traits": [
                 {
-                    "name": "Elite"
+                    "name": "Elite",
+                    "special": true
                 },
                 {
-                    "name": "Slippery"
+                    "name": "Slippery",
+                    "special": true
                 }
             ]
         },
@@ -751,7 +787,8 @@
                     "name": "Aim",
                     "cost": "heavy",
                     "tags": [],
-                    "text": "Next ranged attack increases all damage by +[D], gains +1 boon, ignores cover, and doubles its range."
+                    "text": "Next ranged attack increases all damage by +[D], gains +1 boon, ignores cover, and doubles its range.",
+                    "altText": "+[D], +1 boon, ignore cover, double range on next attack."
                 },
                 {
                     "name": "Heart Seeker",
@@ -760,7 +797,8 @@
                         "ranged attack 6",
                         "pierce"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss: fray. Effect: Cannot target characters in range 2."
+                    "text": "On hit: 2[D] + fray. Miss: fray. Effect: Cannot target characters in range 2.",
+                    "altText": "Heavy. Must be outside range 2."
                 }
             ],
             "also": [
@@ -779,7 +817,7 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "Autohit: fray damage and shove 1 Effect: All other adjacent foes are shoved 1."
+                    "text": "Autohit: fray damage and shove 1. Effect: All other adjacent foes are shoved 1."
                 },
                 {
                     "name": "Shoulder check",

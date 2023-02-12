@@ -71,16 +71,17 @@ export const FoeAction = ({ action }: Props) => {
 interface TraitTooltipProps {
   children: ReactNode
   traitName: string
+  underline?: boolean
 }
 
-export const TraitTooltip = ({ children, traitName }: TraitTooltipProps) => {
+export const TraitTooltip = ({ children, traitName, underline }: TraitTooltipProps) => {
   const traitData = traitMap.get(traitName.toLocaleLowerCase())
 
   const tooltip = traitData
-    ? `${traitData.name}\n${traitData.text}`
+    ? `${traitData.name}${traitData.altText ? '\n\n' + traitData.altText : ''}\n\n${traitData.text}`
     : 'No trait found'
 
-  return <span title={tooltip}>{children}</span>
+  return <span title={tooltip} style={underline ? UNDERLINE : {}}>{children}</span>
 }
 
 export const ActionTag = ({ tag }: { tag: string }) => {

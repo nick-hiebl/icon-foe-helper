@@ -7,6 +7,7 @@
   overflow-y: scroll;
   width: 370px;
   padding: 0;
+  z-index: 2;
 }
 
 .drawer-left {

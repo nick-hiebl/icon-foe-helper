@@ -37,10 +37,8 @@ function makeFoes(names: string[]): FoeInfo[] {
     }))
 }
 
-foes.find((f) => f.name === 'Tomb Guard')!
-
 const initialState: State = {
-  foes: makeFoes(['Tomb Guard']),
+  foes: makeFoes(['Rogue', 'Sniper', 'Sledge', 'Skulk', 'Priest']),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,
