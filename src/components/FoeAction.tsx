@@ -1,4 +1,4 @@
-import { CSSProperties, Fragment, ReactNode } from 'react'
+import { Fragment, ReactNode, useState } from 'react'
 
 import { traitMap } from '../FoeData'
 import { Action } from '../types'
@@ -20,14 +20,38 @@ function renderCost(action: Action) {
   return COST_MAP[action.cost]
 }
 
-const BOLD: CSSProperties = {
-  fontWeight: 'bold',
+const HIGHLIGHTED = {
+  backgroundColor: '#ff06',
+  border: '4px solid #ff06',
+  margin: '-4px',
+}
+
+const UNDERLINE = {
+  textDecoration: 'underline',
+}
+
+const CLICKABLE = {
+  cursor: 'pointer',
 }
 
 export const FoeAction = ({ action }: Props) => {
+  const [showingAlt, setAlt] = useState(false)
+  const isInterrupt = action.cost.includes('errupt')
+
+  const hasAlt = !!action.altText
+
+  const text = showingAlt ? action.altText : action.text
+
   return (
-    <p>
-      <span style={BOLD}>
+    <p
+      style={{
+        ...(hasAlt ? CLICKABLE : {}),
+        ...(isInterrupt ? HIGHLIGHTED : {}),
+        ...(showingAlt ? UNDERLINE : {}),
+      }}
+      onClick={() => setAlt(hasAlt && !showingAlt)}
+    >
+      <strong>
         {action.name}
         {' ('}
         {renderCost(action)}
@@ -38,8 +62,8 @@ export const FoeAction = ({ action }: Props) => {
           </Fragment>
         ))}
         {'): '}
-      </span>
-      <span>{action.text}</span>
+      </strong>
+      <span>{text}</span>
     </p>
   )
 }

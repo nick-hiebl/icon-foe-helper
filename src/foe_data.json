@@ -465,13 +465,15 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Area effect: All foes adjacent to the attack target take 2 damage."
+                    "text": "On hit: [D] + fray. Miss: fray. Area effect: All foes adjacent to the attack target take 2 damage.",
+                    "altText": "Light attack. Blast 1 on target with 2 damage."
                 },
                 {
                     "name": "Strike",
                     "cost": "light",
                     "tags": [],
-                    "text": "An adjacent foe must save or become dazed. Dazed foes take fray damage."
+                    "text": "An adjacent foe must save or become dazed. Dazed foes take fray damage.",
+                    "altText": "Foe saves or is dazed and takes fray."
                 },
                 {
                     "name": "Death March",
@@ -498,7 +500,8 @@
                     "name": "Withstand",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "When self or an adjacent ally is targeted by an attack, may grant resistance against the attack."
+                    "text": "When self or an adjacent ally is targeted by an attack, may grant resistance against the attack.",
+                    "altText": "When me or adjacent ally is targeted, halve damage."
                 },
                 {
                     "name": "Bash",
@@ -506,7 +509,8 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save."
+                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save.",
+                    "altText": "Shove adjacent foe 1, wind if fail save or collide."
                 }
             ],
             "also": [

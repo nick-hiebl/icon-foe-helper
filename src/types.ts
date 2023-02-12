@@ -54,6 +54,7 @@ export interface Trait {
 
 export interface TraitInfo extends Trait {
   text: string
+  altText?: string
 }
 
 export interface Action {
@@ -61,4 +62,5 @@ export interface Action {
   cost: 'free' | 'light' | 'heavy' | 'Interrupt 1' | 'Interrupt 2' | 'Interrupt 3'
   tags: string[]
   text: string
+  altText?: string
 }

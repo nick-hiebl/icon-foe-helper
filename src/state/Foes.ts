@@ -1,4 +1,5 @@
 import { Action, createHook, createStore } from 'react-sweet-state'
+import { foes } from '../FoeData'
 
 import { Foe } from '../types'
 
@@ -22,8 +23,24 @@ interface State {
   isEditing: boolean
 }
 
+function isDefined<T>(t?: T): t is T {
+  return !!t
+}
+
+function makeFoes(names: string[]): FoeInfo[] {
+  return names.map((name) => foes.find((f) => f.name === name))
+    .filter(isDefined)
+    .map((f) => ({
+      id: getId(),
+      templates: [],
+      actualFoe: f,
+    }))
+}
+
+foes.find((f) => f.name === 'Tomb Guard')!
+
 const initialState: State = {
-  foes: [],
+  foes: makeFoes(['Tomb Guard']),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,
