@@ -37,8 +37,15 @@ function makeFoes(names: string[]): FoeInfo[] {
     }))
 }
 
+const THE_GATE = ['Tomb Guard', 'Embalmer', 'Arc Spectre', 'Automata']
+const CARELS_BRIGADIERS = ['Rogue', 'Sniper', 'Sledge', 'Skulk', 'Priest']
+const ENCROSS_PATROL = ['Officer Buzz Trooper', 'Auxiliary', 'Imperial Soldier', 'Grenadier', 'Commander', 'Imperial Pepperbox']
+const WELL_BEAST = ['Halitoad', 'Howler', 'Gulper', 'Elite Dervish']
+const DREAD_KNIGHT = ['Archon', 'Arc Spectre', 'Relict Skulk', 'Servitor']
+const THE_WRETCH = ['Nocturnal']
+
 const initialState: State = {
-  foes: makeFoes(['Rogue', 'Sniper', 'Sledge', 'Skulk', 'Priest']),
+  foes: makeFoes(THE_GATE),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,

@@ -97,7 +97,8 @@
         },
         {
             "name": "Hunter in the Mist",
-            "text": "Attacks are a critical hit (+[D]) against characters with no allies or allied summons adjacent."
+            "text": "Attacks are a critical hit (+[D]) against characters with no allies or allied summons adjacent.",
+            "altText": "Crit on isolated foes."
         },
         {
             "name": "Imperial: Flee",
@@ -142,7 +143,8 @@
         },
         {
             "name": "Receive Orders",
-            "text": "When an imperial that's not a commanding officer starts its turn in range of an imperial command aura, it recharges all of its abilities."
+            "text": "When an imperial that's not a commanding officer starts its turn in range of an imperial command aura, it recharges all of its abilities.",
+            "altText": "Recharge near imperial officer."
         },
         {
             "name": "Repeatable",
@@ -155,6 +157,10 @@
         {
             "name": "Ruin beast: Monsters",
             "text": "Beasts do not negotiate. They might flee if losing badly."
+        },
+        {
+            "name": "Shattered",
+            "text": "Cannot gain or benefit from vigor."
         },
         {
             "name": "Shelter",
@@ -450,13 +456,15 @@
                         "ranged attack 5",
                         "+1 boon"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: May dash 1 before and after the attack. Ignores cover and deals bonus damage against bloodied foes."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: May dash 1 before and after the attack. Ignores cover and deals bonus damage against bloodied foes.",
+                    "altText": "Light attack +1 boon. Can crit. Effect: Dash 1 before and after. Ignore cover, bonus against bloodied."
                 },
                 {
                     "name": "Glare",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 5 takes fray damage, then must save or become blinded."
+                    "text": "A foe in range 5 takes fray damage, then must save or become blinded.",
+                    "altText": "Range 5. Fray and save ?: blinded."
                 },
                 {
                     "name": "Riddle",
@@ -465,7 +473,8 @@
                         "ranged attack 5",
                         "recharge 6"
                     ],
-                    "text": "On hit: Deal 3 damage five times. Miss: Two times. Effect: Ignores cover."
+                    "text": "On hit: Deal 3 damage five times. Miss: Two times. Effect: Ignores cover.",
+                    "altText": "5x 3 damage. 2x on miss. Ignores cover."
                 }
             ]
         },
@@ -660,7 +669,7 @@
                         "recharge 6"
                     ],
                     "text": "On hit: [D] three times. Miss or area effect: [D]. Effect: All foes must save or become electrified and vulnerable. Electrified characters fail the save.",
-                    "altText": "Hit: [D],[D],[D]. Miss/AoE: [D]. Effect: Save (unless electrified) or electrified + vulnerable"
+                    "altText": "Hit: [D],[D],[D]. Miss/AoE: [D]. {Electrified + Vulnerable | Electrified}."
                 }
             ],
             "also": [
@@ -817,7 +826,8 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "Autohit: fray damage and shove 1. Effect: All other adjacent foes are shoved 1."
+                    "text": "Autohit: fray damage and shove 1. Effect: All other adjacent foes are shoved 1.",
+                    "altText": "Autohit shove and fray. Shove neighbors too."
                 },
                 {
                     "name": "Shoulder check",
@@ -833,7 +843,8 @@
                         "melee attack",
                         "recharge 6"
                     ],
-                    "text": "Attack: On hit: 3[D] + fray and foe is stunned and shoved 1. Miss: fray damage and foe is dazed. Effect: +1 boon against dazed characters."
+                    "text": "Attack: On hit: 3[D] + fray and foe is stunned and shoved 1. Miss: fray damage and foe is dazed. Effect: +1 boon against dazed characters.",
+                    "altText": "3[D] heavy attack, stunning and shoving. Boon against dazed foes."
                 }
             ],
             "also": [
@@ -858,7 +869,8 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "On hit: [D] +fray, Miss: fray. Attack is a critical hit (+[D]) if made against a blinded or slow character."
+                    "text": "On hit: [D] + fray, Miss: fray. Attack is a critical hit (+[D]) if made against a blinded or slow character.",
+                    "altText": "Light attack, crits on blinded / slow target."
                 },
                 {
                     "name": "Throw Knife",
@@ -872,7 +884,8 @@
                     "tags": [
                         "end turn"
                     ],
-                    "text": "An adjacent foe must save or become blinded or slow (Skulk chooses). The Skulk then gains stealth."
+                    "text": "An adjacent foe must save or become blinded or slow (Skulk chooses). The Skulk then gains stealth.",
+                    "altText": "Blind or slow foe, gain stealth."
                 }
             ],
             "also": [
@@ -883,8 +896,16 @@
             ],
             "traits": [
                 {
-                    "name": "Slippery"
+                    "name": "Slippery",
+                    "special": true
                 }
+            ]
+        },
+        {
+            "name": "Relict Skulk",
+            "also": [
+                "Skulk",
+                "_relict"
             ]
         },
         {
@@ -897,7 +918,8 @@
                         "blast 1",
                         "range 4"
                     ],
-                    "text": "Autohit: [D] + fray. Miss or area effect: fray. Effect: Foes inside are branded. Branded foes must save or become pacified."
+                    "text": "Autohit: [D] + fray. Miss or area effect: fray. Effect: Foes inside are branded. Branded foes must save or become pacified.",
+                    "altText": "Light attack blast 1. AoE -> Branded -> Save ?: Pacified."
                 },
                 {
                     "name": "Redempta",
@@ -905,7 +927,8 @@
                     "tags": [
                         "1/combat"
                     ],
-                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round."
+                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round.",
+                    "altText": "Resurrect defeated ally in range 4 at 50% hp."
                 },
                 {
                     "name": "Shield of Faith",
@@ -913,7 +936,8 @@
                     "tags": [
                         "mark"
                     ],
-                    "text": "Allied character in range 3 becomes marked, and gains sturdy and resistance while marked and in range 3 of the priest."
+                    "text": "Allied character in range 3 becomes marked, and gains sturdy and resistance while marked and in range 3 of the priest.",
+                    "altText": "Mark sturdy and resistant bodyguard."
                 }
             ],
             "also": [
@@ -924,7 +948,8 @@
             ],
             "traits": [
                 {
-                    "name": "Divine Presence"
+                    "name": "Divine Presence",
+                    "special": true
                 }
             ]
         },
@@ -960,7 +985,8 @@
                     "name": "Get Down Sir!",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "Trigger: An adjacent ally takes damage from an ability. Effect: The Auxiliary is defeated. The ally gains resistance to that ability."
+                    "text": "Trigger: An adjacent ally takes damage from an ability. Effect: The Auxiliary is defeated. The ally gains resistance to that ability.",
+                    "altText": "Sacrifice self to grant resistance to adjacent ally."
                 },
                 {
                     "name": "Arquebus",
@@ -968,7 +994,8 @@
                     "tags": [
                         "ranged attack 8"
                     ],
-                    "text": "Autohit: Deal 1 piercing damage. Increase to 2 piercing damage if in the command aura of an imperial officer or if the target is burning."
+                    "text": "Autohit: Deal 1 piercing damage. Increase to 2 piercing damage if in the command aura of an imperial officer or if the target is burning.",
+                    "altText": "Autohit: 1 pierce, 2 if near officer or burning target."
                 }
             ],
             "also": [
@@ -1004,7 +1031,8 @@
                     "name": "Counter-strike",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "Trigger: The Trooper or an adjacent ally is hit or miss by a melee attack. Effect: The attacker is shoved 1 and must save. On a failed save, they take fray damage and are dazed."
+                    "text": "Trigger: The Trooper or an adjacent ally is hit or miss by a melee attack. Effect: The attacker is shoved 1 and must save. On a failed save, they take fray damage and are dazed.",
+                    "altText": "Nearby ally hit, attacker shoved, takes fray and dazed."
                 },
                 {
                     "name": "Brutal Slash",
@@ -1021,7 +1049,8 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "The trooper fires a heavy sidearm in a Line 3 area effect. Foes inside are shoved 1 and take 2 damage."
+                    "text": "The trooper fires a heavy sidearm in a Line 3 area effect. Foes inside are shoved 1 and take 2 damage.",
+                    "altText": "Line 3, 2 damage and shove."
                 },
                 {
                     "name": "Hold the Line!",
@@ -1029,7 +1058,8 @@
                     "tags": [
                         "recharge 6"
                     ],
-                    "text": "The Trooper gains aura 2 until the end of its next turn. The Trooper and any of its allies inside the aura have resistance against melee attacks."
+                    "text": "The Trooper gains aura 2 until the end of its next turn. The Trooper and any of its allies inside the aura have resistance against melee attacks.",
+                    "altText": "Aura 2 of melee resistance."
                 }
             ],
             "also": [
@@ -1042,7 +1072,8 @@
                     "value": "3"
                 },
                 {
-                    "name": "Vengeance"
+                    "name": "Vengeance",
+                    "special": true
                 }
             ]
         },
@@ -1057,11 +1088,25 @@
                         "melee attack",
                         "arc 3"
                     ],
-                    "text": "On hit: [D] + fray. Miss or area effect: fray. Critical Hit: Repeat the area effect."
+                    "text": "On hit: [D] + fray. Miss or area effect: fray. Critical Hit: Repeat the area effect.",
+                    "altText": "Light attack. AoE twice on crit."
+                },
+                {
+                    "name": "Brutal Slash",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "Disabled."
                 }
             ],
             "also": [
                 "Trooper"
+            ]
+        },
+        {
+            "name": "Officer Buzz Trooper",
+            "also": [
+                "Buzz Trooper",
+                "Imperial Officer"
             ]
         },
         {
@@ -1074,7 +1119,8 @@
                         "true strike",
                         "attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray."
+                    "text": "On hit: [D] + fray. Miss: fray.",
+                    "altText": "Light attack."
                 },
                 {
                     "name": "Bash",
@@ -1082,13 +1128,15 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save."
+                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save.",
+                    "altText": "Shove and wind foe."
                 },
                 {
                     "name": "Valiant",
                     "cost": "heavy",
                     "tags": [],
-                    "text": "The soldier dashes up to 4 spaces in a straight line, then may use Bash as a free action"
+                    "text": "The soldier dashes up to 4 spaces in a straight line, then may use Bash as a free action.",
+                    "altText": "Line 4 dash + free Bash."
                 }
             ],
             "also": [
@@ -1105,6 +1153,13 @@
             ]
         },
         {
+            "name": "Imperial Soldier",
+            "also": [
+                "Soldier",
+                "_imperial"
+            ]
+        },
+        {
             "name": "Gunner",
             "actions": [
                 {
@@ -1115,19 +1170,22 @@
                         "ranged attack 12",
                         "special recharge"
                     ],
-                    "text": "On hit: 2[D] +fray and foe is vulnerable. Miss: [D] + fray. Critical hit: Damage becomes divine. Recharge: Only recharges by taking the reload action."
+                    "text": "On hit: 2[D] + fray and foe is vulnerable. Miss: [D] + fray. Critical hit: Damage becomes divine. Recharge: Only recharges by taking the reload action.",
+                    "altText": "Heavy attack, making target vulnerable. Divine on crit."
                 },
                 {
                     "name": "Reload rifle",
                     "cost": "light",
                     "tags": [],
-                    "text": "Heavy Arquebus recharges. Effect: Becomes a free action in a Command Aura."
+                    "text": "Heavy Arquebus recharges. Effect: Becomes a free action in a Command Aura.",
+                    "altText": "Recharge Heavy Arquebus."
                 },
                 {
                     "name": "Grappling hook",
                     "cost": "light",
                     "tags": [],
-                    "text": "The Gunner teleports adjacent to a summon or object in range 3. Alternately, it can teleport adjacent to a foe in range, and that foe becomes shattered."
+                    "text": "The Gunner teleports adjacent to a summon or object in range 3. Alternately, it can teleport adjacent to a foe in range, and that foe becomes shattered.",
+                    "altText": "Teleport to foe or summon, shattering foe."
                 },
                 {
                     "name": "Suppressor turret",
@@ -1136,7 +1194,8 @@
                         "summon",
                         "recharge 6"
                     ],
-                    "text": "The Gunner summons a gun emplacement in range 4. Gun turret: Size 1, immobile summon. Summon effect: When a foe in range 4 from the emplacement is damaged by an attack or ability, the emplacement deals 1 piercing damage to that foe, ignoring cover. This effect can trigger any number of times a round."
+                    "text": "The Gunner summons a gun emplacement in range 4. Gun turret: Size 1, immobile summon. Summon effect: When a foe in range 4 from the emplacement is damaged by an attack or ability, the emplacement deals 1 piercing damage to that foe, ignoring cover. This effect can trigger any number of times a round.",
+                    "altText": "Summon zappy turret."
                 }
             ],
             "also": [
@@ -1153,7 +1212,8 @@
                     "tags": [
                         "range 6"
                     ],
-                    "text": "A foe in range is shattered and burning. Burning foes take [D]."
+                    "text": "A foe in range is shattered and burning. Burning foes take [D].",
+                    "altText": "Foe -> burning (+ shattered) -> [D]."
                 },
                 {
                     "name": "Thumper Grenade",
@@ -1162,7 +1222,14 @@
                         "range 6",
                         "Cross 1"
                     ],
-                    "text": "Area effect: fray damage. Create a pit in the center space."
+                    "text": "Area effect: fray damage. Create a pit in the center space.",
+                    "altText": "Fray and make pit."
+                }
+            ],
+            "traits": [
+                {
+                    "name": "Receive Orders",
+                    "special": true
                 }
             ],
             "tags": [
@@ -1176,12 +1243,13 @@
             "name": "Commander",
             "actions": [
                 {
-                    "name": "Leader’s strike",
+                    "name": "Leader's strike",
                     "cost": "light",
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: Up to two allies in range 3 can dash 2 spaces."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Up to two allies in range 3 can dash 2 spaces.",
+                    "altText": "Light attack. Allies can dash."
                 },
                 {
                     "name": "Coordinate Strikes",
@@ -1189,7 +1257,8 @@
                     "tags": [
                         "range 4"
                     ],
-                    "text": "A foe in range is marked. While marked, they can’t benefit from stealth, and attacks against them gain true strike."
+                    "text": "A foe in range is marked. While marked, they can't benefit from stealth, and attacks against them gain true strike.",
+                    "altText": "Mark to prevent stealth and cause true strike while in Aura 2."
                 },
                 {
                     "name": "Marching Orders",
@@ -1197,7 +1266,8 @@
                     "tags": [
                         "stance"
                     ],
-                    "text": "When Commander takes this stance, as an action while in this stance, and at start of each of the commander’s turns, the commander and all allies in range 2 can dash 2 in the same direction."
+                    "text": "When Commander takes this stance, as an action while in this stance, and at start of each of the commander's turns, the commander and all allies in range 2 can dash 2 in the same direction.",
+                    "altText": "Aura 2. Allies can dash 2 at the start of my turn in a shared direction."
                 }
             ],
             "also": [
@@ -1213,6 +1283,19 @@
             ]
         },
         {
+            "name": "Imperial Pepperbox",
+            "also": [
+                "Pepperbox",
+                "_imperial"
+            ],
+            "traits": [
+                {
+                    "name": "Receive Orders",
+                    "special": true
+                }
+            ]
+        },
+        {
             "name": "_ruinbeast",
             "tags": [
                 "template",
@@ -1223,7 +1306,8 @@
                     "name": "Ruin beast: Monsters"
                 },
                 {
-                    "name": "Enrage"
+                    "name": "Enrage",
+                    "special": true
                 }
             ]
         },
@@ -1237,7 +1321,8 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: Shove 1. If either foe or this character is bloodied, increase shove to 3."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Shove 1. If either foe or this character is bloodied, increase shove to 3.",
+                    "altText": "Light attack. Shove 1, 3 if anyone bloodied."
                 },
                 {
                     "name": "Rampage",
@@ -1245,7 +1330,8 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "Effect: The beast dashes up to 2 spaces. When it ends this movement, adjacent foes take 2 damage and is shoved 1."
+                    "text": "Effect: The beast dashes up to 2 spaces. When it ends this movement, adjacent foes take 2 damage and is shoved 1.",
+                    "altText": "Dash 2, 2 damage and shove 1 to adjacent foes."
                 },
                 {
                     "name": "Charge",
@@ -1254,7 +1340,8 @@
                         "end turn",
                         "recharge 4+"
                     ],
-                    "text": "Effect: The beast chooses a foe in range 2. At the end of that foe's next turn, the beast dashes up to 5 spaces towards that foe, phasing through characters. Characters the beast passes through are shoved 1 to either side and take fray damage. If the beasts ends this movement adjacent to their foe, that foe must save or take 2[D] + fray and become stunned, or [D] + fray only on a successful save. Effect: This ability has no recharge if the beast is bloodied."
+                    "text": "Effect: The beast chooses a foe in range 2. At the end of that foe's next turn, the beast dashes up to 5 spaces towards that foe, phasing through characters. Characters the beast passes through are shoved 1 to either side and take fray damage. If the beasts ends this movement adjacent to their foe, that foe must save or take 2[D] + fray and become stunned, or [D] + fray only on a successful save. Effect: This ability has no recharge if the beast is bloodied.",
+                    "altText": "Charge marked foe in range 5 at the end of their next turn. {Heavy damage + stun} / light damage. No recharge if bloodied."
                 }
             ],
             "also": [
@@ -1279,7 +1366,8 @@
                     "name": "Tongue Lash",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 4 takes fray damage, then must save or become poisoned and shoved as far as possible towards the Halitoad. Poisoned characters fail the save. Effect: Range 8 while bloodied."
+                    "text": "A foe in range 4 takes fray damage, then must save or become poisoned and shoved as far as possible towards the Halitoad. Poisoned characters fail the save. Effect: Range 8 while bloodied.",
+                    "altText": "Range 4 (8 while bloodied), fray damage. {Poisoned, shoved towards Halitoad}."
                 }
             ],
             "also": [
@@ -1290,7 +1378,8 @@
             ],
             "traits": [
                 {
-                    "name": "Stench"
+                    "name": "Stench",
+                    "special": true
                 }
             ]
         },
@@ -1303,19 +1392,22 @@
                     "tags": [
                         "recharge 6"
                     ],
-                    "text": "All non-howler characters in a close blast 1 area effect must save or take [D] + fray and be stunned. Effect: Can be used as an Interrupt when bloodied."
+                    "text": "All non-howler characters in a close blast 1 area effect must save or take [D] + fray and be stunned. Effect: Can be used as an Interrupt when bloodied.",
+                    "altText": "Close blast 1. {[D] + fray, stun}. Can be an interrupt when bloodied."
                 },
                 {
                     "name": "Iron Grip",
                     "cost": "light",
                     "tags": [],
-                    "text": "The Howler dashes 3 spaces in any direction. An adjacent foe when it starts moving must save or be dragged them with it, shoving its target towards it until its adjacent. Bloodied foes fail the save."
+                    "text": "The Howler dashes 3 spaces in any direction. An adjacent foe when it starts moving must save or be dragged them with it, shoving its target towards it until its adjacent. Bloodied foes fail the save.",
+                    "altText": "Dash 3. Adjacent foe {dragged}."
                 },
                 {
                     "name": "Body Slam",
                     "cost": "free",
                     "tags": [],
-                    "text": "The Howler flies into the air and comes slamming back down. Adjacent characters must choose: be shoved 1, or take fray damage."
+                    "text": "The Howler flies into the air and comes slamming back down. Adjacent characters must choose: be shoved 1, or take fray damage.",
+                    "altText": "Adjacent foes shove 1 / fray."
                 }
             ],
             "also": [
@@ -1336,7 +1428,8 @@
                         "ranged attack 8",
                         "cross 2"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: On hit, foe is shattered and poisoned. Shatters foe even on miss if they are poisoned."
+                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: On hit, foe is shattered and poisoned. Shatters foe even on miss if they are poisoned.",
+                    "altText": "Heavy. Shatter and poison foe if hit or poisoned."
                 },
                 {
                     "name": "Deluge",
@@ -1344,7 +1437,8 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "The beast dashes 2, then deals 2 piercing damage to a foe in range 6."
+                    "text": "The beast dashes 2, then deals 2 piercing damage to a foe in range 6.",
+                    "altText": "Dash 2, pierce 2 in range 6."
                 },
                 {
                     "name": "Blight Lob",
@@ -1353,7 +1447,8 @@
                         "end turn",
                         "recharge 4+"
                     ],
-                    "text": "The Beast creates a blast 1 area of difficult terrain in range 8. Characters standing in the area are vulnerable+. The area lasts for the rest of combat, or until this beast uses this ability again."
+                    "text": "The Beast creates a blast 1 area of difficult terrain in range 8. Characters standing in the area are vulnerable+. The area lasts for the rest of combat, or until this beast uses this ability again.",
+                    "altText": "Range 8, blast 1. Difficult terrain inflicting vulnerable."
                 }
             ],
             "also": [
@@ -1368,7 +1463,8 @@
                     "name": "Slime Spit",
                     "cost": "heavy",
                     "tags": [],
-                    "text": "The Gulper creates a line 6 area of difficult terrain. Foes caught in the area when it is created are shoved 2. Collide: Foe is shattered."
+                    "text": "The Gulper creates a line 6 area of difficult terrain. Foes caught in the area when it is created are shoved 2. Collide: Foe is shattered.",
+                    "altText": "Line 6 difficult terrain. Shove 2 on hit, shatter on collide."
                 }
             ],
             "also": [
@@ -1389,7 +1485,8 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "Repeat the following effect three times: Dash 1, then deal 2 damage to all adjacent foes. Must move in the same direction."
+                    "text": "Repeat the following effect three times: Dash 1, then deal 2 damage to all adjacent foes. Must move in the same direction.",
+                    "altText": "3x Dash 1 (in a line) and 2 damage to adjacent foes."
                 },
                 {
                     "name": "Gust",
@@ -1403,7 +1500,8 @@
                     "tags": [
                         "recharge 5+"
                     ],
-                    "text": "Repeat the following effect four times: Effect: Teleport 1, then deal 2 damage to all adjacent foes. Must teleport to a different space each time."
+                    "text": "Repeat the following effect four times: Effect: Teleport 1, then deal 2 damage to all adjacent foes. Must teleport to a different space each time.",
+                    "altText": "4x Teleport 1 and 2 damage to adjacent foes."
                 }
             ],
             "tags": [
@@ -1419,6 +1517,17 @@
             ]
         },
         {
+            "name": "Elite Dervish",
+            "also": [
+                "Dervish"
+            ],
+            "traits": [
+                {
+                    "name": "Elite"
+                }
+            ]
+        },
+        {
             "name": "Archon",
             "actions": [
                 {
@@ -1428,7 +1537,8 @@
                         "true strike",
                         "melee attack"
                     ],
-                    "text": "On hit: Deal [D] + fray. Miss: fray. Effect: Deals 2 damage to all foes adjacent to the archon or their target Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, dazed, or winded."
+                    "text": "On hit: Deal [D] + fray. Miss: fray. Effect: Deals 2 damage to all foes adjacent to the archon or their target Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, dazed, or winded.",
+                    "altText": "Light attack. 2 damage splash around self and target. +1 boon per stunned, dazed, winded."
                 },
                 {
                     "name": "Iron Fist",
@@ -1436,13 +1546,15 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "Effect: An adjacent foe must save or become dazed, if they are already dazed, they are also winded."
+                    "text": "Effect: An adjacent foe must save or become dazed, if they are already dazed, they are also winded.",
+                    "altText": "Adjacent. {Foe -> Dazed -> Winded}."
                 },
                 {
                     "name": "Great Slam",
                     "cost": "light",
                     "tags": [],
-                    "text": "Dash 2 spaces, then all adjacent foes are shoved 1 space. Collide: foe is stunned."
+                    "text": "Dash 2 spaces, then all adjacent foes are shoved 1 space. Collide: foe is stunned.",
+                    "altText": "Dash 2 and shove adjacent foes."
                 },
                 {
                     "name": "Great Shieldwall",
@@ -1451,7 +1563,8 @@
                         "stance",
                         "recharge 5+"
                     ],
-                    "text": "While in this stance, becomes immobile, but self and adjacent allies gain resistance. Ends at the start of the Archon’s next turn."
+                    "text": "While in this stance, becomes immobile, but self and adjacent allies gain resistance. Ends at the start of the Archon's next turn.",
+                    "altText": "Immobile. Aura 1 resistance. Lasts until next turn."
                 }
             ],
             "tags": [
@@ -1462,10 +1575,12 @@
             ],
             "traits": [
                 {
-                    "name": "Elite"
+                    "name": "Elite",
+                    "special": true
                 },
                 {
-                    "name": "Great Enrage"
+                    "name": "Great Enrage",
+                    "special": true
                 },
                 {
                     "name": "Armor X",
@@ -1480,7 +1595,8 @@
                     "name": "Withstand",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "When self or an adjacent ally is targeted by an attack, may grant resistance against the attack."
+                    "text": "When self or an adjacent ally is targeted by an attack, may grant resistance against the attack.",
+                    "altText": "Grant Resistance to nearby attacked foe."
                 },
                 {
                     "name": "Bash",
@@ -1488,7 +1604,8 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save."
+                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save.",
+                    "altText": "Adjacent foe is shoved 1, {Winded | Collide}."
                 }
             ],
             "also": [
@@ -1512,7 +1629,8 @@
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "On hit: [D] + fray and shove 1. Miss: fray damage. Effect: May teleport up to 3 spaces before or after the attack."
+                    "text": "On hit: [D] + fray and shove 1. Miss: fray damage. Effect: May teleport up to 3 spaces before or after the attack.",
+                    "altText": "Light + shove 1. Teleport 3 before or after."
                 },
                 {
                     "name": "Rake",
@@ -1522,7 +1640,8 @@
                         "line 4",
                         "repeatable"
                     ],
-                    "text": "Foes in the area take fray damage. The Nocturnal may teleport to any space in the area after this action resolves."
+                    "text": "Foes in the area take fray damage. The Nocturnal may teleport to any space in the area after this action resolves.",
+                    "altText": "Line 4 fray. Teleport into the line."
                 },
                 {
                     "name": "Disappear",
@@ -1530,7 +1649,8 @@
                     "tags": [
                         "1/round"
                     ],
-                    "text": "Remove the Nocturnal from the battlefield and place them in any free space."
+                    "text": "Remove the Nocturnal from the battlefield and place them in any free space.",
+                    "altText": "Free Teleport X."
                 }
             ],
             "also": [
@@ -1538,16 +1658,18 @@
             ],
             "traits": [
                 {
-                    "name": "Legend"
+                    "name": "Legend",
+                    "special": true
                 },
                 {
-                    "name": "Hunter in the Mist"
+                    "name": "Hunter in the Mist",
+                    "special": true
                 }
             ],
             "phaseDescription": "Phase change triggers at the start of each round. The Nocturnal starts in phase II and can shift up or down one phase (so it can’t shift from I to III for example). It must shift phases.",
             "phases": [
                 {
-                    "name": "Phase I",
+                    "name": "Phase I - Hard to hit, disrupt foes",
                     "actions": [
                         {
                             "name": "Paranoia",
@@ -1556,7 +1678,8 @@
                                 "multi mark",
                                 "1/round"
                             ],
-                            "text": "A foe in range 6 is marked. While marked, they cannot target allies with abilities and effects. A character can save at the end of their turn to clear this mark, ending it on a success."
+                            "text": "A foe in range 6 is marked. While marked, they cannot target allies with abilities and effects. A character can save at the end of their turn to clear this mark, ending it on a success.",
+                            "altText": "Foe in range 6 marked to not trust allies."
                         },
                         {
                             "name": "Amygdala",
@@ -1564,7 +1687,8 @@
                             "tags": [
                                 "1/round"
                             ],
-                            "text": "All foes in range 3 are forced to flee. They must save or be shoved 2 spaces in a direction of the Nocturnal’s choice. At the start of their next turn, even if they saved successfully, the Nocturnal can shove them 2 in a direction of its choice."
+                            "text": "All foes in range 3 are forced to flee. They must save or be shoved 2 spaces in a direction of the Nocturnal's choice. At the start of their next turn, even if they saved successfully, the Nocturnal can shove them 2 in a direction of its choice.",
+                            "altText": "Range 3 effect. {Shoved 2 spaces by Nocturnal}. Targets shoved 2 on their turn."
                         }
                     ],
                     "traits": [
@@ -1582,7 +1706,8 @@
                             "tags": [
                                 "2/round"
                             ],
-                            "text": "Mark two unoccupied spaces in range 8. Area effect: Characters that enter that space or start their turn there are struck by a projectile, taking 3 damage twice, and ending this effect. This area lasts until triggered."
+                            "text": "Mark two unoccupied spaces in range 8. Area effect: Characters that enter that space or start their turn there are struck by a projectile, taking 3 damage twice, and ending this effect. This area lasts until triggered.",
+                            "altText": "Prep 2 spaces in range 8 to deal 3 damage twice."
                         }
                     ],
                     "traits": [
@@ -1600,7 +1725,8 @@
                             "tags": [
                                 "1/round"
                             ],
-                            "text": "An adjacent foe must save. On a successful save, they are shoved 1 and take [D] + fray. On a failed save, they take divine damage equal to 50% of their max hp. Either way, this attack can’t take them below 1 hp."
+                            "text": "An adjacent foe must save. On a successful save, they are shoved 1 and take [D] + fray. On a failed save, they take divine damage equal to 50% of their max hp. Either way, this attack can't take them below 1 hp.",
+                            "altText": "{50% hp divine damage}, otherwise light damage and shove 1. Non-lethal."
                         },
                         {
                             "name": "Open Wound",
@@ -1609,7 +1735,8 @@
                                 "multimark",
                                 "1/ round"
                             ],
-                            "text": "A foe in range 4 is marked. While marked, when that foe is shoved, they take fray damage. A foe can save against this effect at the end of their turn, ending the mark."
+                            "text": "A foe in range 4 is marked. While marked, when that foe is shoved, they take fray damage. A foe can save against this effect at the end of their turn, ending the mark.",
+                            "altText": "Foe in range 4 marked to take fray when shoved."
                         }
                     ],
                     "traits": []
