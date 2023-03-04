@@ -1868,6 +1868,19 @@
             "also": [
                 "Wailicat"
             ]
+        },
+        {
+            "name": "Imp",
+            "stats": {
+                "speed": 3,
+                "dash": 2,
+                "hp": 16,
+                "vitality": 6,
+                "damage_die": "1d6"
+            },
+            "also": [
+                "Skulk"
+            ]
         }
     ]
 }

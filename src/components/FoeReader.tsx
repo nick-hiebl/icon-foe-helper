@@ -9,6 +9,8 @@ const statKeys: [string, keyof FoeStats][] = [
   ['SPEED', 'speed'],
   ['DASH', 'dash'],
   ['DEFENSE', 'defense'],
+  ['VIT', 'vitality'],
+  ['[D]', 'damage_die'],
 ]
 
 function findNumberWord(string: string): string | undefined {
@@ -84,7 +86,7 @@ function parseAction(line: string): Action {
 
   const actionTraits = getList(line.slice(openParen + 1, closeParen))
   const cost = COST_MAP[actionTraits[0] as 'free action' | '1 action' | '2 actions'] || 'XXXXXXXXXXXXXXX'
-  
+
   return {
     name,
     cost: cost as 'free' | 'light' | 'heavy',
@@ -118,7 +120,7 @@ function rawFoeFromText(text: string): RawFoe {
 
         const word = findNumberWord(line)
 
-        const value = parseInt(word || '0', 10)
+        const value = key === 'damage_die' ? word : parseInt(word || '0', 10)
         stats[key] = value as any
       }
     }
