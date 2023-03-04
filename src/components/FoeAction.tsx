@@ -1,7 +1,8 @@
-import { Fragment, ReactNode, useState } from 'react'
+import { Fragment, ReactNode, useCallback, useState } from 'react'
 
 import { traitMap } from '../FoeData'
 import { Action } from '../types'
+import { useKeyListener } from '../utils/useEventListener'
 
 interface Props {
   action: Action
@@ -39,6 +40,12 @@ export const FoeAction = ({ action }: Props) => {
   const isInterrupt = action.cost.includes('errupt')
 
   const hasAlt = !!action.altText
+
+  const goToSimple = useCallback(() => {
+    setAlt(hasAlt)
+  }, [hasAlt])
+
+  useKeyListener(' ', goToSimple)
 
   const text = showingAlt ? action.altText : action.text
 

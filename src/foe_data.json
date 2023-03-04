@@ -1457,6 +1457,42 @@
             ]
         },
         {
+            "name": "Husk",
+            "stats": {
+                "hp": 1,
+                "speed": 3,
+                "dash": 2,
+                "defense": 8,
+                "vitality": 1
+            },
+            "actions": [
+                {
+                    "name": "Latch on",
+                    "cost": "heavy",
+                    "tags": [],
+                    "text": "The Husk moves up to 3 spaces in a straight line, then an adjacent character becomes immobile until the Husk is no longer adjacent or is defeated.",
+                    "altText": "Dash up to 3 in a line then grapple a target."
+                },
+                {
+                    "name": "Lurching grab",
+                    "cost": "heavy",
+                    "tags": [
+                        "melee attack"
+                    ],
+                    "text": "Dash 1, then autohit: 1 damage. If the target started this turn immobile, then deal 3 piercing damage.",
+                    "altText": "Dash 1 then do 1 damage, or 3 to grappled targets."
+                }
+            ],
+            "also": [
+                "_relict"
+            ],
+            "traits": [
+                {
+                    "name": "Mob"
+                }
+            ]
+        },
+        {
             "name": "Gulper",
             "actions": [
                 {
