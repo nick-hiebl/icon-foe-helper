@@ -35,6 +35,10 @@
             "text": "Attackers gain +1 boon against this character."
         },
         {
+            "name": "Bullheaded",
+            "text": "Has resistance unless suffering from a status."
+        },
+        {
             "name": "Camouflage",
             "text": "If this beast ends its turn adjacent to an object or inside difficult terrain, it gains stealth."
         },
@@ -1880,6 +1884,61 @@
             },
             "also": [
                 "Skulk"
+            ]
+        },
+        {
+            "name": "Mindless Automata",
+            "actions": [
+                {
+                    "name": "Bloody crescent",
+                    "cost": "light",
+                    "tags": [
+                        "true strike",
+                        "melee attack",
+                        "arc 3"
+                    ],
+                    "text": "On hit: [D] + fray. Miss or area effect: fray.",
+                    "altText": "Light attack."
+                },
+                {
+                    "name": "Swipe",
+                    "cost": "light",
+                    "tags": [
+                        "repeatable"
+                    ],
+                    "text": "All foes adjacent to the berserker take 2 damage.",
+                    "altText": "2 damage self blast 1."
+                },
+                {
+                    "name": "Leap",
+                    "cost": "light",
+                    "tags": [
+                        "repeatable"
+                    ],
+                    "text": "The berserker flies 2. When it lands, all adjacent characters are shoved 1.",
+                    "altText": "Fly 2 then adjacent foes shoved 1."
+                }
+            ],
+            "also": [
+                "_red"
+            ],
+            "traits": [
+                {
+                    "name": "Automata"
+                },
+                {
+                    "name": "Armor X",
+                    "value": "3"
+                },
+                {
+                    "name": "Defiance"
+                },
+                {
+                    "name": "Enrage"
+                },
+                {
+                    "name": "Bullheaded"
+                }
             ]
         }
     ]

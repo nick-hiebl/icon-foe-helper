@@ -10,7 +10,7 @@ const statKeys: [string, keyof FoeStats][] = [
   ['DASH', 'dash'],
   ['DEFENSE', 'defense'],
   ['VIT', 'vitality'],
-  ['[D]', 'damage_die'],
+  ['[D]:', 'damage_die'],
 ]
 
 function findNumberWord(string: string): string | undefined {
