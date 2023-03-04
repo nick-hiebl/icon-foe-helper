@@ -35,6 +35,10 @@
             "text": "Attackers gain +1 boon against this character."
         },
         {
+            "name": "Camouflage",
+            "text": "If this beast ends its turn adjacent to an object or inside difficult terrain, it gains stealth."
+        },
+        {
             "name": "Commander's Aura",
             "text": "Aura 2. Allies in the aura gain +1 boon on attacks."
         },
@@ -90,6 +94,10 @@
         {
             "name": "Great Enrage",
             "text": "Sturdy and +1 action while bloodied."
+        },
+        {
+            "name": "Great Leap",
+            "text": "Ignores height movement penalties. When moving from a higher elevation to a lower one, may fly until movement ends."
         },
         {
             "name": "Heavy Armor",
@@ -1702,7 +1710,7 @@
                     "special": true
                 }
             ],
-            "phaseDescription": "Phase change triggers at the start of each round. The Nocturnal starts in phase II and can shift up or down one phase (so it can’t shift from I to III for example). It must shift phases.",
+            "phaseDescription": "Phase change triggers at the start of each round. The Nocturnal starts in phase II and can shift up or down one phase (so it can't shift from I to III for example). It must shift phases.",
             "phases": [
                 {
                     "name": "Phase I - Hard to hit, disrupt foes",
@@ -1777,6 +1785,88 @@
                     ],
                     "traits": []
                 }
+            ]
+        },
+        {
+            "name": "Stalking Beast",
+            "also": [
+                "_yellow"
+            ],
+            "actions": [
+                {
+                    "name": "Ambush",
+                    "cost": "light",
+                    "tags": [
+                        "melee attack"
+                    ],
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Against a bloodied foe, becomes a critical hit, and blinds on hit.",
+                    "altText": "Light melee, crits and blinds bloodied."
+                },
+                {
+                    "name": "Prowl",
+                    "cost": "light",
+                    "tags": [
+                        "end turn"
+                    ],
+                    "text": "Dash 1 and gain stealth."
+                },
+                {
+                    "name": "Rake",
+                    "cost": "light",
+                    "tags": [
+                        "area effect",
+                        "line 3",
+                        "repeatable"
+                    ],
+                    "text": "Foes in the area take fray damage. The Stalking Beast may teleport to any space in the area after this action resolves.",
+                    "altText": "Line 3 fray, teleport into line."
+                }
+            ],
+            "traits": [
+                {
+                    "name": "Skirmisher"
+                },
+                {
+                    "name": "Dodge"
+                },
+                {
+                    "name": "Enrage"
+                },
+                {
+                    "name": "Camouflage"
+                }
+            ]
+        },
+        {
+            "name": "Wailicat",
+            "actions": [
+                {
+                    "name": "Pounce",
+                    "cost": "free",
+                    "tags": [
+                        "end turn"
+                    ],
+                    "text": "The cat gains stealth. Choose a foe in range 3. If, at the end of that foe's next turn, they are still in range 3 of the cat, it may teleport adjacent to them and deal [D], ending this effect."
+                }
+            ],
+            "also": [
+                "Stalking Beast"
+            ],
+            "traits": [
+                {
+                    "name": "Great Leap"
+                }
+            ]
+        },
+        {
+            "name": "Elite Wailicat",
+            "traits": [
+                {
+                    "name": "Elite"
+                }
+            ],
+            "also": [
+                "Wailicat"
             ]
         }
     ]

@@ -48,7 +48,7 @@ export function produceFoe(rawFoe: RawFoe, strict = true): [Foe, string[]] {
     const prevFoe = enemyMap.get(parent)
 
     if (!prevFoe) {
-      const error = `Cannot find previous foe: ${parent}`
+      const error = `Cannot find previous foe: ${parent}, parent of: ${rawFoe.name}`
       if (strict) {
         throw new Error(error)
       }
