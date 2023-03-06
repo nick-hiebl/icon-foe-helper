@@ -49,6 +49,7 @@ const COST_MAP = {
   'interrupt 1': 'Interrupt 1',
   'Interrupt 2': 'Interrupt 2',
   'Interrupt 3': 'Interrupt 3',
+  'movement': 'movement',
 }
 
 function removeSuperfluousNewlines(string: string) {

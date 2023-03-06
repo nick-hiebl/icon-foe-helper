@@ -19,6 +19,7 @@ enum SortLevel {
   also = 9,
   tags = 8,
   traits = 7,
+  actions = 6,
 }
 
 const sortLevelCategories: [SortLevel, string][] = [
@@ -26,6 +27,7 @@ const sortLevelCategories: [SortLevel, string][] = [
   [SortLevel.also, 'Belongs to kind'],
   [SortLevel.tags, 'Tags'],
   [SortLevel.traits, 'Traits'],
+  [SortLevel.actions, 'Actions'],
 ]
 
 // Return a higher number the better the foe matches. 0 or less is a non-match
@@ -44,6 +46,10 @@ function foeMatchLevel(searchQuery: string, foe: Foe): SortLevel {
 
   if (foe.traits.some((trait) => contains(trait.name, searchQuery))) {
     return SortLevel.traits
+  }
+
+  if (foe.actions.some((action) => contains(action.name, searchQuery))) {
+    return SortLevel.actions
   }
 
   return 0

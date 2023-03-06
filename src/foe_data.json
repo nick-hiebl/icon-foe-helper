@@ -1972,6 +1972,45 @@
                     "name": "Mob"
                 }
             ]
+        },
+        {
+            "name": "Tentacle",
+            "actions": [
+                {
+                    "name": "Malicious Latch",
+                    "cost": "movement",
+                    "tags": [],
+                    "text": "Can latch on to an adjacent foe as an action or by using its standard move. A foe can pass a save to avoid this effect, and can repeat the save at the end of their turns, ending it on a success and shoving the ape into a free adjacent space. While latched on to a foe, the foe is pacified+ and the ape can choose whether any of the ape’s abilities apply to it or not.",
+                    "altText": "{Stick to and make foe pacified}."
+                },
+                {
+                    "name": "Scrabble",
+                    "cost": "light",
+                    "tags": [
+                        "melee attack"
+                    ],
+                    "text": "Autohit: Fray damage."
+                },
+                {
+                    "name": "Pheromones",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "A foe in range 4 is pacified."
+                },
+                {
+                    "name": "Spur",
+                    "cost": "light",
+                    "tags": [
+                        "repeatable"
+                    ],
+                    "text": "The character the symbiote is latched on to dashes 3 and may deal fray damage to an adjacent character of the symbiote’s choice.",
+                    "altText": "Latched foe dashes 3 and deal fray damage to an adjacent foe."
+                }
+            ],
+            "also": [
+                "_ruinbeast",
+                "_green"
+            ]
         }
     ]
 }

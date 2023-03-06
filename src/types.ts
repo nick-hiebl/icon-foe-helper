@@ -60,7 +60,7 @@ export interface TraitInfo extends Trait {
 
 export interface Action {
   name: string
-  cost: 'free' | 'light' | 'heavy' | 'Interrupt 1' | 'Interrupt 2' | 'Interrupt 3'
+  cost: 'free' | 'light' | 'heavy' | 'Interrupt 1' | 'Interrupt 2' | 'Interrupt 3' | 'movement'
   tags: string[]
   text: string
   altText?: string
