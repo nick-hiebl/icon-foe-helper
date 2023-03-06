@@ -1940,6 +1940,38 @@
                     "name": "Bullheaded"
                 }
             ]
+        },
+        {
+            "name": "Basic Mob",
+            "stats": {
+                "hp": 1,
+                "speed": 4,
+                "dash": 2,
+                "defense": 6,
+                "damage_die": "1d4",
+                "vitality": 1
+            },
+            "actions": [
+                {
+                    "name": "Rabble",
+                    "cost": "heavy",
+                    "tags": [
+                        "melee attack or ranged attack 3"
+                    ],
+                    "text": "Autohit: 1 damage. If an ally is adjacent to the target, deal 3 damage instead."
+                },
+                {
+                    "name": "Rush",
+                    "cost": "heavy",
+                    "tags": [],
+                    "text": "Dash 2, then deal 1 damage to an adjacent foe, then shove an adjacent foe 1 space. A foe can only be shoved this way once on the same turn."
+                }
+            ],
+            "traits": [
+                {
+                    "name": "Mob"
+                }
+            ]
         }
     ]
 }
