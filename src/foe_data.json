@@ -2011,6 +2011,66 @@
                 "_ruinbeast",
                 "_green"
             ]
+        },
+        {
+            "name": "Arkivist",
+            "actions": [
+                {
+                    "name": "Aura of the Endless Legion",
+                    "cost": "free",
+                    "tags": [
+                        "stance"
+                    ],
+                    "text": "Aura 2. When any Relict in the region is defeated in the aura, summon a Husk in a free space in the aura."
+                },
+                {
+                    "name": "Call of the Lost",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "Summon 3 husks adjacent to a foe in range 8."
+                }
+            ],
+            "also": [
+                "Necrosavant"
+            ]
+        },
+        {
+            "name": "Ghul",
+            "actions": [
+                {
+                    "name": "Hamstring",
+                    "cost": "light",
+                    "tags": [
+                        "+1 boon",
+                        "melee attack"
+                    ],
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: On hit, until the end of their next turn, foe takes 2 damage for each space they move.",
+                    "altText": "Light attack. Makes target take 2 damage per moved space."
+                },
+                {
+                    "name": "Life Drain",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "Effect: A foe in range 3 takes fray damage, ignoring vigor. If they are bloodied, they take fray damage twice instead, ignoring vigor.",
+                    "altText": "3 divine damage. Doubled if bloodied."
+                },
+                {
+                    "name": "Terrorize",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "Effect: A foe in range 4 must save or become blinded+ and gains +1 curse on all attacks and saves until it ends a turn adjacent to an ally. On a successful save, they are only blinded. Blinded or Bloodied foes fail the save.",
+                    "altText": "Range 4 {blinded+, +1 curse on attacks and save until next to an ally | Blinded or Bloodied}."
+                }
+            ],
+            "also": [
+                "_yellow",
+                "_relict"
+            ],
+            "traits": [
+                {
+                    "name": "Phasing"
+                }
+            ]
         }
     ]
 }
