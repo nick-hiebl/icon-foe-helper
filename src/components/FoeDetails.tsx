@@ -65,11 +65,19 @@ export const FoeTitle = ({ foe }: Props) => {
   )
 }
 
+const showTags = (tags: string[]) => {
+  return tags.filter((tag) => !tag.startsWith('_')).join(', ')
+}
+
 export const FoeDetails = ({ foe }: Props) => {
+  if (foe.tags.includes('summon')) {
+    return <Summon foe={foe} />
+  }
+
   return (
     <div>
       <FoeTitle foe={foe} />
-      <span>{foe.tags.join(', ')}</span>
+      <span>{showTags(foe.tags)}</span>
       <FoeStats foe={foe} />
       <TraitBlock traits={foe.traits} />
       <ul>
@@ -81,6 +89,24 @@ export const FoeDetails = ({ foe }: Props) => {
     </div>
   )
 }
+
+const Summon = ({ foe }: Props) => (
+  <div>
+    <FoeTitle foe={foe} />
+    <span>{showTags(foe.tags)}</span>
+    <TraitBlock traits={foe.traits} />
+    <ul>
+      {foe.actions.map((action) => (
+        <li key={action.name}>
+          <p>
+            <strong>{action.name}:</strong>
+            <span>{' '}{action.text}</span>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
 const TraitBlock = ({ traits }: { traits: Trait[] }) => {
   if (traits.length === 0) {

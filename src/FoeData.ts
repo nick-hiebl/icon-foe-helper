@@ -106,8 +106,6 @@ export function produceFoe(rawFoe: RawFoe, strict = true): [Foe, string[]] {
     newLegend.phases = rawLegend.phases!
   }
 
-  newFoe.actions = newFoe.actions.filter((a) => a.text !== "Disabled.")
-
   if (strict) {
     return [newFoe as Foe, []]
   } else {

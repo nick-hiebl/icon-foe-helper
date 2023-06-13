@@ -50,6 +50,10 @@ export const FoeAction = ({ action }: Props) => {
 
   const text = showingAlt ? action.altText : action.text
 
+  if (text === '-') {
+    return null
+  }
+
   return (
     <p
       style={{
@@ -93,5 +97,15 @@ export const TraitTooltip = ({ children, traitName, underline }: TraitTooltipPro
 }
 
 export const ActionTag = ({ tag }: { tag: string }) => {
-  return <TraitTooltip traitName={tag}>{tag}</TraitTooltip>
+  const isSpecial = tag.endsWith('!')
+
+  const tagName = isSpecial ? tag.slice(0, tag.length - 1) : tag
+
+  const c = <TraitTooltip traitName={tagName}>{tagName}</TraitTooltip>
+
+  if (isSpecial) {
+    return <u>{c}</u>
+  }
+
+  return c
 }

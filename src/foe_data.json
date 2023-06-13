@@ -2,7 +2,7 @@
     "traits": [
         {
             "name": "Aetherwall",
-            "text": "Gains automatic cover against all attacks that originate outside of range 2 from them (Cover grants resistance against ranged attacks, reducing it by 1/2).",
+            "text": "Gains resistance against all abilities from characters that are outside of range 2 from them (Cover halves ranged damage).",
             "altText": "Damage from beyond range 2 is halved."
         },
         {
@@ -76,16 +76,8 @@
             "text": "Gain +1 action when bloodied."
         },
         {
-            "name": "Ethereal",
-            "text": "Has phasing and resistance unless there's an adjacent foe."
-        },
-        {
             "name": "Evasion",
             "text": "Roll a d6 when targeted by an attack. On a 4+, the attack automatically misses. Check before the attack roll."
-        },
-        {
-            "name": "Faction Blight: Electrified",
-            "text": "Takes bonus damage from Electrified attacks."
         },
         {
             "name": "Fortify",
@@ -93,7 +85,7 @@
         },
         {
             "name": "Flying",
-            "text": "A flying character ignores all terrain, objects, and terrain effects other than impassable terrain, and ignores engagement and obstruction."
+            "text": "A flying character ignores terrain damage and movement penalties, height movement penalties, obstruction, and engagement."
         },
         {
             "name": "Great Enrage",
@@ -102,6 +94,10 @@
         {
             "name": "Great Leap",
             "text": "Ignores height movement penalties. When moving from a higher elevation to a lower one, may fly until movement ends."
+        },
+        {
+            "name": "Guard",
+            "text": "Reduce all damage to self and allies in orthogonal spaces by 2, as if by armor."
         },
         {
             "name": "Heavy Armor",
@@ -126,12 +122,12 @@
         },
         {
             "name": "Legend",
-            "text": "Takes 1 turn after every player character turn. If slow, only one of its turns is affected."
+            "text": "Takes 1 turn after each player character turn."
         },
         {
             "name": "Legion of the Dead",
             "text": "Relict are a legion of mindless husks, cursed with an undying existence. This gives all relict except Legends the following trait: This character has a chance to rise again when defeated. Roll 1d6 at the start of each round that this character is defeated. On a 4+, this character gets back up at 25% hp, returning it from defeated, and can take a turn normally this round. If defeated again, this character disintegrates and is removed from the battlefield. If all characters with this trait are defeated, it deactivates.",
-            "altText": "After dying, 50% chance to revive at 25% hp on their turn, once."
+            "altText": "After dying, 33% chance to revive at 25% hp on their turn, once."
         },
         {
             "name": "Mob",
@@ -150,8 +146,17 @@
             "text": "Character deals half damage. Breaks on taking damage from an ability."
         },
         {
+            "name": "Phasing",
+            "text": "Can ignore obstruction and pass through, but not end your turn in, terrain, objects, or characters."
+        },
+        {
             "name": "Primal Strength",
             "text": "When a brawler beast causes a character to collide, that character is dazed."
+        },
+        {
+            "name": "Rampart",
+            "text": "Foes cannot enter or exit a space affected by a rampart effect by dashing, flying or teleporting.",
+            "altText": "Dashing, flying and teleporting don't break engagement"
         },
         {
             "name": "Receive Orders",
@@ -171,6 +176,18 @@
             "text": "Beasts do not negotiate. They might flee if losing badly."
         },
         {
+            "name": "Rush X",
+            "text": "Move X spaces. You are unstoppable and immune to all damage while moving."
+        },
+        {
+            "name": "Sacrifice X",
+            "text": "Reduce your hp by X, usually as a cost for an ability. Sacrifice costs are paid at the start of an ability, cannot be reduced, ignored, transferred, or resisted, cannot bring your hp below 1, and you can pay them even if you don't have enough hp left."
+        },
+        {
+            "name": "Sealed",
+            "text": "Character cannot inflict statuses."
+        },
+        {
             "name": "Shattered",
             "text": "Cannot gain or benefit from vigor."
         },
@@ -183,8 +200,16 @@
             "text": "A character with this trait can move diagonally and dash at full speed."
         },
         {
+            "name": "Slashed",
+            "text": "Take 4 damage after you or an ally uses an ability that moves you, but no more than once a turn."
+        },
+        {
             "name": "Slimy skin",
             "text": "When damaged, may dash 1 as an effect."
+        },
+        {
+            "name": "Slip",
+            "text": "Movement ignores rampart, interrupts, and vigilance."
         },
         {
             "name": "Slippery",
@@ -225,21 +250,24 @@
             "name": "_red",
             "tags": [
                 "red",
-                "statblock"
+                "_statblock"
             ],
             "also": [],
             "traits": [
                 {
-                    "name": "Fortify"
+                    "name": "Guard"
+                },
+                {
+                    "name": "Rampart"
                 }
             ],
             "actions": [],
             "stats": {
                 "vitality": 10,
                 "hp": 40,
-                "speed": 3,
+                "speed": 4,
                 "dash": 2,
-                "defense": 5,
+                "defense": 6,
                 "fray": 4,
                 "damage_die": "1d6"
             }
@@ -248,7 +276,7 @@
             "name": "_yellow",
             "tags": [
                 "yellow",
-                "statblock"
+                "_statblock"
             ],
             "also": [],
             "traits": [
@@ -261,12 +289,12 @@
             ],
             "actions": [],
             "stats": {
-                "vitality": 6,
-                "hp": 24,
+                "vitality": 7,
+                "hp": 28,
                 "speed": 4,
                 "dash": 4,
-                "defense": 12,
-                "fray": 3,
+                "defense": 10,
+                "fray": 2,
                 "damage_die": "1d10"
             }
         },
@@ -274,7 +302,7 @@
             "name": "_green",
             "tags": [
                 "green",
-                "statblock"
+                "_statblock"
             ],
             "also": [],
             "traits": [
@@ -287,8 +315,8 @@
                     "name": "Diaga",
                     "cost": "light",
                     "tags": [],
-                    "text": "An ally in range 4 can end a status or blight. If that ally is bloodied, they also gain vigor 1.",
-                    "altText": "Clear a status/blight. Bloodied: Vigor."
+                    "text": "An ally in range 4 is cured.",
+                    "altText": "Range 4 cure."
                 }
             ],
             "stats": {
@@ -305,23 +333,15 @@
             "name": "_blue",
             "tags": [
                 "blue",
-                "statblock"
+                "_statblock"
             ],
             "also": [],
             "traits": [
                 {
-                    "name": "Overdrive"
+                    "name": "Aetherwall"
                 },
                 {
-                    "name": "Aetherwall"
-                }
-            ],
-            "actions": [
-                {
-                    "name": "Slip",
-                    "cost": "light",
-                    "tags": [],
-                    "text": "Remove self from the battlefield, then return within 1 space"
+                    "name": "Slip"
                 }
             ],
             "stats": {
@@ -335,6 +355,49 @@
             }
         },
         {
+            "name": "_legend",
+            "tags": [
+                "_statblock"
+            ],
+            "traits": [
+                {
+                    "name": "Legend"
+                },
+                {
+                    "name": "Juggernaut"
+                }
+            ],
+            "stats": {
+                "vitality": 10,
+                "hp": 50,
+                "speed": 4,
+                "dash": 2,
+                "defense": 8,
+                "fray": 3,
+                "damage_die": "1d8"
+            }
+        },
+        {
+            "name": "_mob",
+            "tags": [
+                "_statblock"
+            ],
+            "traits": [
+                {
+                    "name": "Mob"
+                }
+            ],
+            "stats": {
+                "vitality": -1,
+                "hp": 2,
+                "speed": 4,
+                "dash": 2,
+                "defense": 8,
+                "fray": 0,
+                "damage_die": "1d0"
+            }
+        },
+        {
             "name": "_relict",
             "tags": [
                 "template",
@@ -344,9 +407,6 @@
             "traits": [
                 {
                     "name": "Relict: Monsters"
-                },
-                {
-                    "name": "Faction Blight: Electrified"
                 },
                 {
                     "name": "Legion of the Dead"
@@ -396,50 +456,6 @@
                         "repeatable"
                     ],
                     "text": "An adjacent foe is dazed. Dazed foes take fray damage."
-                }
-            ]
-        },
-        {
-            "name": "Soldier",
-            "tags": [
-                "red",
-                "basic"
-            ],
-            "also": [
-                "_red"
-            ],
-            "traits": [
-                {
-                    "name": "Fortify"
-                },
-                {
-                    "name": "Armor X",
-                    "value": "3"
-                }
-            ],
-            "actions": [
-                {
-                    "name": "Slash",
-                    "cost": "light",
-                    "tags": [
-                        "true strike",
-                        "attack"
-                    ],
-                    "text": "On hit: [D] + fray. Miss: fray."
-                },
-                {
-                    "name": "Bash",
-                    "cost": "light",
-                    "tags": [
-                        "repeatable"
-                    ],
-                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save."
-                },
-                {
-                    "name": "Valiant",
-                    "cost": "heavy",
-                    "tags": [],
-                    "text": "The soldier dashes up to 4 spaces in a straight line, then may use Bash as a free action."
                 }
             ]
         },
@@ -565,10 +581,11 @@
                     "cost": "heavy",
                     "tags": [
                         "ranged attack",
-                        "range 6 blast 1"
+                        "range 5",
+                        "medium blast"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: Attack target is branded. This action can also be made as a close blast 1 melee attack.",
-                    "altText": "Heavy attack with blast 1, range 6 or melee range 2. Brands target."
+                    "text": "On hit: 2[D] + fray. Miss or area effect: fray. Effect: Sealed foes must sacrifice 4. Then, attack target is sealed.",
+                    "altText": "Heavy attack with medium blast, range 5. Sealed -> Sacrifice 4, target -> sealed."
                 },
                 {
                     "name": "Fear",
@@ -576,24 +593,18 @@
                     "tags": [
                         "multimark"
                     ],
-                    "text": "Mark a foe in range 6. While marked, that foe gains +1 curse on attacks and saves unless adjacent to an ally. If they end their turn adjacent to an ally, they can clear this mark.",
-                    "altText": "Curse foe in range 6 for attacks and curses until they find a friend."
+                    "text": "Mark a foe in range 6. While marked, that foe deals half damage unless adjacent to an ally. If they end their turn adjacent to an ally, they can save to clear this mark.",
+                    "altText": "Fear foe in range 6 to deal half damage unless next to an ally. Can save end of turn if next to ally."
                 },
                 {
-                    "name": "Grasping Dead",
+                    "name": "Black Communion",
                     "cost": "light",
-                    "tags": [],
-                    "text": "A foe in range 6 takes 2 damage, then must save. On a failed save, spectral hands grab and immobilize them until the end of their next turn. That character or an adjacent ally can use an action to end this effect, freeing them.",
-                    "altText": "Foe in range 6 takes 2 damage then saves or is frozen."
-                },
-                {
-                    "name": "Raise Dead",
-                    "cost": "heavy",
                     "tags": [
-                        "1/combat"
+                        "range 5",
+                        "line 4"
                     ],
-                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round.",
-                    "altText": "Resurrect defeated ally in range 4 at 50% hp."
+                    "text": "Area effect: Foes take 2 damage. Allies gain 2 vigor. Then, create a difficult terrain effect space of grasping dead hands underneath every foe in the area. While inside a grasping hands space, foes are sealed+ and cannot gain vigor.",
+                    "altText": "Range 5 line 4 deals 2 damage and grants allies 2 vigor. Difficult terrain under every foe in area, applying sealed+ to foes and preventing vigor."
                 }
             ],
             "also": [
@@ -622,6 +633,24 @@
                     "special": true
                 }
             ],
+            "actions": [
+                {
+                    "name": "Black Communion",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "-"
+                },
+                {
+                    "name": "Necrotize",
+                    "cost": "light",
+                    "tags": [
+                        "range 2",
+                        "medium blast"
+                    ],
+                    "text": "Area effect: foes take 2 piercing damage. Self and allies gain vigor 2. Effect: The Embalmer gains Aura 2 until the start of its next turn. Foes that end their turn in the aura must sacrifice 2 and have a grasping hands space created under them, as per Black Communion. While inside a grasping hands space, foes are sealed+ and cannot gain vigor.",
+                    "altText": "Foes: pierce 2, allies: vigor 2. Gain Aura 2 of grasping dead until next turn, foes ending turn in aura sacrifice 2 and create grasping hands space."
+                }
+            ],
             "tags": [
                 "Chapter 1+"
             ]
@@ -633,25 +662,31 @@
                     "name": "Chain Lightning",
                     "cost": "heavy",
                     "tags": [
-                        "ranged attack",
-                        "8",
-                        "pierce"
+                        "attack",
+                        "range 8",
+                        "Burst 2 (target)",
+                        "combo!"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss: fray damage. Effect: Foe is electrified. Area effect: A foe in range 3 from the attack target also takes fray damage, then must save. If they fail the save, this effect repeats, choosing a new foe in range 3 of them instead. A character can only be chosen once by this effect, but it can chain any number of times. Electrified characters take +1 curse on this save.",
-                    "altText": "Heavy attack. Effect: electrify. Chain to foes in range 3, ending if saved."
+                    "text": "On hit: [D] + 2, twice. Miss or area effect: 2 damage, twice."
                 },
                 {
-                    "name": "Shift",
+                    "name": "Soul Spark",
                     "cost": "light",
-                    "tags": [],
-                    "text": "Teleport 2"
+                    "tags": [
+                        "range 6",
+                        "summon",
+                        "combo!"
+                    ],
+                    "text": "Creates a Soul Spark summon in free space in range. Round 3+: Two sparks."
                 },
                 {
-                    "name": "Shock",
+                    "name": "Unstable Charge",
                     "cost": "light",
-                    "tags": [],
-                    "text": "A character in range 8 is vulnerable. Vulnerable foes take piercing fray damage and become electrified.",
-                    "altText": "Foe in range 8 -> Vulnerable -> Fray + electrify."
+                    "tags": [
+                        "range 6",
+                        "mark"
+                    ],
+                    "text": "Mark a foe in range. At the end of that foe's turn, they take 1 piercing damage, once, for every other character in range 2, then become vulnerable. Then, this mark ends."
                 }
             ],
             "also": [
@@ -663,8 +698,33 @@
                     "name": "Flying"
                 },
                 {
-                    "name": "Ethereal",
+                    "name": "Phasing",
                     "special": true
+                }
+            ]
+        },
+        {
+            "name": "Soul Spark",
+            "tags": [
+                "summon",
+                "size 1",
+                "intangible"
+            ],
+            "also": [
+                "_mob"
+            ],
+            "actions": [
+                {
+                    "name": "Summon Effect",
+                    "text": "Foes adjacent to Soul Sparks are vulnerable+, and all damage dealt to them becomes piercing."
+                },
+                {
+                    "name": "Area effect",
+                    "text": "If a foe ends their turn adjacent to a spark, it releases a small blast pulse centered on it, dealing 1 piercing damage twice to all foes."
+                },
+                {
+                    "name": "Effect",
+                    "text": "The wraith can target the spark with Chain Lightning. If they do, it gains rebound and the spark triggers its area effect."
                 }
             ]
         },
@@ -672,16 +732,14 @@
             "name": "Arc Spectre",
             "actions": [
                 {
-                    "name": "Storm of Wrath",
+                    "name": "Synaptic Storm",
                     "cost": "heavy",
                     "tags": [
-                        "ranged attack 8",
-                        "blast 2",
-                        "pierce",
-                        "recharge 6"
+                        "ranged 6",
+                        "terrain effect"
                     ],
-                    "text": "On hit: [D] three times. Miss or area effect: [D]. Effect: All foes must save or become electrified and vulnerable. Electrified characters fail the save.",
-                    "altText": "Hit: [D],[D],[D]. Miss/AoE: [D]. {Electrified + Vulnerable | Electrified}."
+                    "text": "Creates a massive network storm in range, which could overlap characters. The storm is a small blast terrain effect that is dangerous terrain, which relict ignore. Foes in the storm are vulnerable+. Using this ability again with an active storm can move the storm 2 spaces instead of replacing it. If used this way it costs 1 action. At round 3+, moving a storm is a free action.",
+                    "altText": "Create or move small blast dangerous terrain effect. Moving costs 1 action at round 1/2, and is free on round 3+."
                 }
             ],
             "also": [
@@ -1107,7 +1165,7 @@
                     "name": "Brutal Slash",
                     "cost": "light",
                     "tags": [],
-                    "text": "Disabled."
+                    "text": "-"
                 }
             ],
             "also": [
@@ -1123,6 +1181,12 @@
         },
         {
             "name": "Soldier",
+            "also": [
+                "_red"
+            ],
+            "tags": [
+                "basic"
+            ],
             "actions": [
                 {
                     "name": "Slash",
@@ -1131,8 +1195,8 @@
                         "true strike",
                         "attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray.",
-                    "altText": "Light attack."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Foe is slashed.",
+                    "altText": "Light attack. Target slashed on hit."
                 },
                 {
                     "name": "Bash",
@@ -1140,28 +1204,23 @@
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "An adjacent foe is shoved 1 and must save or become winded. Collide: Foe fails the save.",
-                    "altText": "Shove and wind foe."
+                    "text": "An adjacent foe is shoved 2.",
+                    "altText": "Shove 2."
                 },
                 {
                     "name": "Valiant",
                     "cost": "heavy",
                     "tags": [],
-                    "text": "The soldier dashes up to 4 spaces in a straight line, then may use Bash as a free action.",
-                    "altText": "Line 4 dash + free Bash."
+                    "text": "The soldier rushes up to 4 spaces in a straight line, then may use Bash as a free action.",
+                    "altText": "Rush 4 line + free Bash."
                 }
-            ],
+            ]
+        },
+        {
+            "name": "Relict Soldier",
             "also": [
-                "_red"
-            ],
-            "tags": [
-                "basic"
-            ],
-            "traits": [
-                {
-                    "name": "Armor X",
-                    "value": "3"
-                }
+                "_relict",
+                "Soldier"
             ]
         },
         {
