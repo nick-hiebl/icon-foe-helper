@@ -32,6 +32,10 @@ const UNDERLINE = {
   textDecoration: 'underline',
 }
 
+const MINIMISED = {
+  color: '#04a',
+}
+
 const CLICKABLE = {
   cursor: 'pointer',
 }
@@ -59,7 +63,7 @@ export const FoeAction = ({ action }: Props) => {
       style={{
         ...(hasAlt ? CLICKABLE : {}),
         ...(isInterrupt ? HIGHLIGHTED : {}),
-        ...(showingAlt ? UNDERLINE : {}),
+        ...(showingAlt ? MINIMISED : {}),
       }}
       onClick={() => setAlt(hasAlt && !showingAlt)}
     >
