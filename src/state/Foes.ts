@@ -45,7 +45,7 @@ const DREAD_KNIGHT = ['Archon', 'Arc Spectre', 'Relict Skulk', 'Servitor', 'Husk
 const THE_WRETCH = ['Nocturnal']
 
 const initialState: State = {
-  foes: makeFoes(THE_GATE),
+  foes: makeFoes(CARELS_BRIGADIERS),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,

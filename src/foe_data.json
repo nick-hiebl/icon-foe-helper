@@ -216,6 +216,10 @@
             "text": "Evasion while bloodied."
         },
         {
+            "name": "Sneak",
+            "text": "While in stealth, has evasion and phasing."
+        },
+        {
             "name": "Stealth",
             "text": "Cannot be directly targeted except from an adjacent space. Breaks on using any ability other than dash."
         },
@@ -226,6 +230,10 @@
         {
             "name": "Sturdy",
             "text": "Immune to shove, daze, and stun."
+        },
+        {
+            "name": "Unerring",
+            "text": "Ignores cover and aetherwall."
         },
         {
             "name": "Vengeance",
@@ -816,7 +824,7 @@
                     "name": "Disappearing Act",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "Trigger: When bloodied. Effect: may teleport 4, then gain stealth."
+                    "text": "Trigger: When bloodied. Effect: Remove self from the battlefield. At the start of the Rogue's next turn, return them to the battlefield with Stealth, anywhere in range 3 of a character."
                 },
                 {
                     "name": "Wicked Slice",
@@ -825,24 +833,35 @@
                         "melee attack",
                         "+1 boon"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: Critical hit (+[D]) against bloodied characters. Effect: Dash 1 before and after the attack.",
-                    "altText": "Light attack +1 boon. Can crit. Effect: Dash 1 before and after."
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Deals 2 damage again to the target for each of the following on the target: bloodied, blinded, dazed. Effect: Dash 1 before and after the attack.",
+                    "altText": "Light attack +1 boon. +2 damage per bloodied, blinded, dazed. (Can crit.) Effect: Dash 1 before and after."
                 },
                 {
-                    "name": "Vile",
+                    "name": "Blinding Dust",
                     "cost": "light",
-                    "tags": [],
-                    "text": "A foe in range 5 is slowed, and must save or take take 1 piercing damage for each space they move until the end of their next turn.",
-                    "altText": "Slow foe in range 5, save or take 1 piercing for each square they move next turn."
+                    "tags": [
+                        "end turn"
+                    ],
+                    "text": "An adjacent foe becomes blinded. The Rogue then may dash 3 and gains Stealth.",
+                    "altText": "Blind adjacent foe, dash 3, gain Stealth."
+                },
+                {
+                    "name": "Dirty Fighting",
+                    "cost": "light",
+                    "tags": [
+                        "combo!"
+                    ],
+                    "text": "Daze two foes in range 3 of the Rogue and each other, then swap their places, removing and placing them.",
+                    "altText": "Daze and swap two foes in range 3."
                 },
                 {
                     "name": "Foul Play",
-                    "cost": "heavy",
+                    "cost": "light",
                     "tags": [
-                        "recharge 5+"
+                        "combo!"
                     ],
-                    "text": "Teleport 3, then deal [D] to an adjacent foe. Can repeat this effect, but must choose a different foe each time unless no other foes are in range, or this effect has triggered four times.",
-                    "altText": "Teleport 3, then deal [D] to an adjacent foe. Can chain up to four times."
+                    "text": "Teleport 4, then deal 4 damage to an adjacent foe. Can repeat this effect, but must choose a different foe in range each time unless a foe has already been chosen by this ability, or this effect has triggered 3 times.",
+                    "altText": "Teleport 4, then deal 4 to an adjacent foe. Can chain up to three times on different foes."
                 }
             ],
             "also": [
@@ -864,20 +883,37 @@
             "actions": [
                 {
                     "name": "Aim",
-                    "cost": "heavy",
-                    "tags": [],
-                    "text": "Next ranged attack increases all damage by +[D], gains +1 boon, ignores cover, and doubles its range.",
-                    "altText": "+[D], +1 boon, ignore cover, double range on next attack."
+                    "cost": "light",
+                    "tags": [
+                        "combo!"
+                    ],
+                    "text": "The Sniper ends its turn."
                 },
                 {
                     "name": "Heart Seeker",
                     "cost": "heavy",
                     "tags": [
-                        "ranged attack 6",
-                        "pierce"
+                        "combo!",
+                        "attack",
+                        "range 12",
+                        "+1 boon"
                     ],
-                    "text": "On hit: 2[D] + fray. Miss: fray. Effect: Cannot target characters in range 2.",
-                    "altText": "Heavy. Must be outside range 2."
+                    "text": "On hit: 3[D] + fray. Miss: [D] + fray. Effect: Cannot target characters in range 3. Effect: At round 3+, costs only 1 action and deals bonus damage.",
+                    "altText": "3[D], miss 1[D]. Foes reverse blinded, light on round 3+."
+                },
+                {
+                    "name": "Brace",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "Create a 1 space terrain effect underneath the Sniper. While standing in a brace, the Sniper ignores height disadvantage and deals bonus damage.",
+                    "altText": "Creates tile underneath that ignores height and causes bonus damage."
+                },
+                {
+                    "name": "Grappling hook",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "The Sniper flies 2. It may fly 4 if it ends its turn in a brace.",
+                    "altText": "Fly 2, or 4 to brace."
                 }
             ],
             "also": [
@@ -891,30 +927,29 @@
             "name": "Sledge",
             "actions": [
                 {
-                    "name": "Hilt sweep",
+                    "name": "Chain hook",
                     "cost": "light",
-                    "tags": [
-                        "melee attack"
-                    ],
-                    "text": "Autohit: fray damage and shove 1. Effect: All other adjacent foes are shoved 1.",
-                    "altText": "Autohit shove and fray. Shove neighbors too."
+                    "tags": [],
+                    "text": "A character in range 3 is shoved 2 towards the Sledge."
                 },
                 {
                     "name": "Shoulder check",
                     "cost": "light",
-                    "tags": [],
-                    "text": "Dash 1 and gain vigilance 1. Smite recharges."
+                    "tags": [
+                        "combo!"
+                    ],
+                    "text": "Rush 1. An adjacent foe is shoved 1."
                 },
                 {
-                    "name": "Smite",
+                    "name": "Crushing Overhead",
                     "cost": "heavy",
                     "tags": [
                         "true strike",
-                        "melee attack",
-                        "recharge 6"
+                        "attack",
+                        "combo!"
                     ],
-                    "text": "Attack: On hit: 3[D] + fray and foe is stunned and shoved 1. Miss: fray damage and foe is dazed. Effect: +1 boon against dazed characters.",
-                    "altText": "3[D] heavy attack, stunning and shoving. Boon against dazed foes."
+                    "text": "Attack: On hit: 3[D] + fray and foe is stunned and shoved 1. Miss: fray damage and foe is slashed. Effect: Deals bonus damage to slashed or weakened characters.",
+                    "altText": "3[D] heavy attack, stunning and shoving 1. Bonus damage against slashed/weakened foes."
                 }
             ],
             "also": [
@@ -925,8 +960,7 @@
             ],
             "traits": [
                 {
-                    "name": "Armor X",
-                    "value": "3"
+                    "name": "Bullheaded"
                 }
             ]
         },
@@ -934,27 +968,31 @@
             "name": "Skulk",
             "actions": [
                 {
-                    "name": "Stab",
+                    "name": "Sneaky Stab",
                     "cost": "light",
                     "tags": [
                         "melee attack"
                     ],
-                    "text": "On hit: [D] + fray, Miss: fray. Attack is a critical hit (+[D]) if made against a blinded or slow character.",
-                    "altText": "Light attack, crits on blinded / slow target."
+                    "text": "On hit: [D] + fray, Miss: fray. Effect: Attack deals bonus damage and does not break stealth against bloodied or blinded foes.",
+                    "altText": "Light attack, bonus damage & retain stealth on blinded / bloodied target."
                 },
                 {
-                    "name": "Throw Knife",
+                    "name": "Throwing Knife",
                     "cost": "light",
-                    "tags": [],
-                    "text": "A foe in range 3 takes fray damage."
+                    "tags": [
+                        "range 3",
+                        "unerring"
+                    ],
+                    "text": "A foe in range takes damage equal to its distance from the Skulk.",
+                    "altText": "Deal distance damage."
                 },
                 {
-                    "name": "Pocket Dust",
+                    "name": "Blinding Dust",
                     "cost": "light",
                     "tags": [
                         "end turn"
                     ],
-                    "text": "An adjacent foe must save or become blinded or slow (Skulk chooses). The Skulk then gains stealth.",
+                    "text": "An adjacent foe becomes blinded. The Skulk then may dash 2 and gains stealth.",
                     "altText": "Blind or slow foe, gain stealth."
                 }
             ],
@@ -966,7 +1004,7 @@
             ],
             "traits": [
                 {
-                    "name": "Slippery",
+                    "name": "Sneak",
                     "special": true
                 }
             ]
@@ -985,29 +1023,30 @@
                     "name": "Holy",
                     "cost": "heavy",
                     "tags": [
-                        "blast 1",
+                        "medium blast",
                         "range 4"
                     ],
-                    "text": "Autohit: [D] + fray. Miss or area effect: fray. Effect: Foes inside are branded. Branded foes must save or become pacified.",
+                    "text": "Autohit: [D] + fray. Miss or area effect: fray. Effect: Attack target is pacified. Effect: Allies in the area gain 2 vigor.",
                     "altText": "Light attack blast 1. AoE -> Branded -> Save ?: Pacified."
                 },
                 {
-                    "name": "Redempta",
+                    "name": "Pandaemonium",
                     "cost": "heavy",
                     "tags": [
-                        "1/combat"
+                        "range 4"
                     ],
-                    "text": "Target defeated ally in range 4 and remove incapacitated. They stop being defeated and return with 50% hp. They can act normally and take a turn starting next round.",
-                    "altText": "Resurrect defeated ally in range 4 at 50% hp."
+                    "text": "The Priest targets a large blast area in range. It may remove all characters in the area, then place them back in any other space in the area. Foes can save to avoid this effect, but are sealed on a successful save.",
+                    "altText": "Move all characters in large blast area freely. Foes save to be sealed or are shuffled."
                 },
                 {
                     "name": "Shield of Faith",
                     "cost": "heavy",
                     "tags": [
+                        "range 2",
                         "mark"
                     ],
-                    "text": "Allied character in range 3 becomes marked, and gains sturdy and resistance while marked and in range 3 of the priest.",
-                    "altText": "Mark sturdy and resistant bodyguard."
+                    "text": "Allied character in range becomes marked. When marked, the ally is cured. While marked and in range of the priest, the marked ally has resistance and +1 boon on saves.",
+                    "altText": "Mark to cure ally and grant resistance + boon on saves."
                 }
             ],
             "also": [
@@ -1018,7 +1057,7 @@
             ],
             "traits": [
                 {
-                    "name": "Divine Presence",
+                    "name": "Defiance",
                     "special": true
                 }
             ]
