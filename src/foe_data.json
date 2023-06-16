@@ -159,9 +159,9 @@
             "altText": "Dashing, flying and teleporting don't break engagement"
         },
         {
-            "name": "Receive Orders",
-            "text": "When an imperial that's not a commanding officer starts its turn in range of an imperial command aura, it recharges all of its abilities.",
-            "altText": "Recharge near imperial officer."
+            "name": "Orders",
+            "text": "At the start of the round, give an orders token to any imperial character. That character automatically activates any exceed effects of their attacks, deals bonus damage, and gains +1 action, but can only take their turn after all other imperials have acted. At the end of the round, discard that token.",
+            "altText": "One imperial per round goes last and auto-exceeds, deals bonus damage and gains +1 action."
         },
         {
             "name": "Repeatable",
@@ -230,6 +230,11 @@
         {
             "name": "Sturdy",
             "text": "Immune to shove, daze, and stun."
+        },
+        {
+            "name": "Tactics Aura",
+            "text": "Aura 1. Allies ignore engagement and rampart effects while in the aura, and may dash 1 if they start their turn there.",
+            "altText": "Allies ignore engagement and rampart, gain dash 1 if they start in the aura."
         },
         {
             "name": "Unerring",
@@ -432,38 +437,74 @@
             "also": [
                 "_red"
             ],
-            "traits": [
-                {
-                    "name": "Fortify"
-                },
-                {
-                    "name": "Armor X",
-                    "value": "3"
-                }
-            ],
             "actions": [
                 {
                     "name": "Redondo",
                     "cost": "free",
                     "tags": [],
-                    "text": "Swap places with an adjacent ally."
+                    "text": "Swap places with an adjacent ally, removing and placing both characters.",
+                    "altText": "Swap with adjacent ally."
                 },
                 {
                     "name": "Cleave",
                     "cost": "heavy",
                     "tags": [
-                        "true strike",
-                        "melee attack"
+                        "attack",
+                        "true strike"
                     ],
-                    "text": "On hit: 2[D] + fray. On miss: fray. Area effect: All foes adjacent to the attack target take fray damage."
+                    "text": "On hit: 2[D] + fray. Miss: fray. Effect: All foes adjacent to the warrior or its attack target take fray damage.",
+                    "altText": "Heavy attack with all adjacent (to self/target) taking fray."
                 },
                 {
-                    "name": "Strike",
+                    "name": "Bull rush",
                     "cost": "light",
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "An adjacent foe is dazed. Dazed foes take fray damage."
+                    "text": "The Warrior rushes 1. An adjacent character when it finishes its movement is either weakened or shoved 1.",
+                    "altText": "Rush 1 then weaken or shove adjacent foe."
+                }
+            ]
+        },
+        {
+            "name": "Blaster",
+            "tags": [
+                "blue",
+                "basic"
+            ],
+            "also": [
+                "_blue"
+            ],
+            "actions": [
+                {
+                    "name": "Blast",
+                    "cost": "heavy",
+                    "tags": [
+                        "attack",
+                        "range 8",
+                        "medium blast"
+                    ],
+                    "text": "On hit: 2[D] + fray. Miss or area effect: fray damage. Area effect: Deal 1 piercing damage again to all characters for each character caught in the area, up to a maximum of three times. Effect: at round 3+, increase blast to a large blast and deals bonus damage.",
+                    "altText": "Heavy attack, blast deals damage per foe in blast, large blast on round 3+."
+                },
+                {
+                    "name": "Emberflash",
+                    "cost": "light",
+                    "tags": [
+                        "small blast",
+                        "range 6"
+                    ],
+                    "text": "Area effect: 2 piercing damage and create a dangerous terrain space in the center, which can be placed under a character.",
+                    "altText": "2 piercing damage, create dangerous terrain."
+                },
+                {
+                    "name": "Flash Fire",
+                    "cost": "light",
+                    "tags": [
+                        "end turn"
+                    ],
+                    "text": "A character in range 6 becomes vulnerable. Vulnerable foes are shoved 2 and take 1 piercing damage twice.",
+                    "altText": "Apply vulnerable, shove 2 and deal 1 pierce twice."
                 }
             ]
         },
@@ -476,41 +517,34 @@
             "also": [
                 "_yellow"
             ],
-            "traits": [
-                {
-                    "name": "Skirmisher"
-                },
-                {
-                    "name": "Dodge"
-                }
-            ],
             "actions": [
                 {
-                    "name": "Strafe shot",
-                    "cost": "light",
-                    "tags": [
-                        "ranged attack 5",
-                        "+1 boon"
-                    ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: May dash 1 before and after the attack. Ignores cover and deals bonus damage against bloodied foes.",
-                    "altText": "Light attack +1 boon. Can crit. Effect: Dash 1 before and after. Ignore cover, bonus against bloodied."
-                },
-                {
-                    "name": "Glare",
+                    "name": "Strafe",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 5 takes fray damage, then must save or become blinded.",
-                    "altText": "Range 5. Fray and save ?: blinded."
+                    "text": "The Pepperbox dashes 2, then deals 2 damage to a foe in range 3.",
+                    "altText": "Dash 2, 2 damage in range 3."
+                },
+                {
+                    "name": "Flash Bomb",
+                    "cost": "heavy",
+                    "tags": [
+                        "range 3",
+                        "small blast"
+                    ],
+                    "text": "Area effect: All foes take 3 damage twice and are blinded. Effect: If the Pepperbox catches itself or allies in the area, they gain stealth.",
+                    "altText": "2x 3 damage and blind foes. Stealth to allies/self."
                 },
                 {
                     "name": "Riddle",
-                    "cost": "heavy",
+                    "cost": "light",
                     "tags": [
-                        "ranged attack 5",
-                        "recharge 6"
+                        "attack",
+                        "range 4",
+                        "+1 boon"
                     ],
-                    "text": "On hit: Deal 3 damage five times. Miss: Two times. Effect: Ignores cover.",
-                    "altText": "5x 3 damage. 2x on miss. Ignores cover."
+                    "text": "On hit: Deal 3 damage, three times. Miss: 3 damage. Effect: Against foes at exactly range 3, inflicts dazed and gains unerring.",
+                    "altText": "2x 3 damage. 1x on miss. Inflicts debuffs at range 3."
                 }
             ]
         },
@@ -1073,18 +1107,29 @@
                     "name": "Imperial: Kin"
                 },
                 {
-                    "name": "Imperial: Flee"
-                },
-                {
-                    "name": "Receive Orders"
+                    "name": "Orders"
                 }
+            ]
+        },
+        {
+            "name": "Imperial Warrior",
+            "also": [
+                "_imperial",
+                "Warrior"
+            ]
+        },
+        {
+            "name": "Imperial Blaster",
+            "also": [
+                "_imperial",
+                "Blaster"
             ]
         },
         {
             "name": "Auxiliary",
             "stats": {
-                "hp": 1,
-                "speed": 3,
+                "hp": 2,
+                "speed": 4,
                 "dash": 2,
                 "defense": 8,
                 "vitality": 1
@@ -1094,17 +1139,25 @@
                     "name": "Get Down Sir!",
                     "cost": "Interrupt 1",
                     "tags": [],
-                    "text": "Trigger: An adjacent ally takes damage from an ability. Effect: The Auxiliary is defeated. The ally gains resistance to that ability.",
-                    "altText": "Sacrifice self to grant resistance to adjacent ally."
+                    "text": "Trigger: An adjacent ally is targeted by an ability. Effect: The Auxiliary is defeated. The ally gains resistance against the triggering ability and is shoved 1 in any direction after it resolves.",
+                    "altText": "Sacrifice self to grant resistance to adjacent ally and shove 1."
                 },
                 {
-                    "name": "Arquebus",
+                    "name": "Fusillade",
                     "cost": "heavy",
                     "tags": [
-                        "ranged attack 8"
+                        "pierce",
+                        "attack",
+                        "range 6"
                     ],
-                    "text": "Autohit: Deal 1 piercing damage. Increase to 2 piercing damage if in the command aura of an imperial officer or if the target is burning.",
-                    "altText": "Autohit: 1 pierce, 2 if near officer or burning target."
+                    "text": "On hit: 2 damage, three times. Miss: 2 damage. Effect: Another auxiliary can deal 2 piercing damage to a foe in range 6 of them. Exceed: Repeat the effect.",
+                    "altText": "On hit: 3[2], miss: [2]. Other auxiliary can join, 2 on exceed."
+                },
+                {
+                    "name": "Focus Fire",
+                    "cost": "heavy",
+                    "tags": [],
+                    "text": "A foe in range 6 of any Auxiliary becomes marked. While marked, they are vulnerable+ and cannot benefit from cover, stealth, dodge, or evasion. A foe can end this mark by dropping to the ground at the start of their turn and becoming immobile and unable to attack for the duration of that turn."
                 }
             ],
             "also": [
@@ -1338,7 +1391,7 @@
             ],
             "traits": [
                 {
-                    "name": "Receive Orders",
+                    "name": "Orders",
                     "special": true
                 }
             ],
@@ -1400,7 +1453,7 @@
             ],
             "traits": [
                 {
-                    "name": "Receive Orders",
+                    "name": "Orders",
                     "special": true
                 }
             ]
@@ -2167,6 +2220,84 @@
             "traits": [
                 {
                     "name": "Phasing"
+                }
+            ]
+        },
+        {
+            "name": "Sergeant",
+            "also": [
+                "_green"
+            ],
+            "traits": [
+                {
+                    "name": "Tactics Aura",
+                    "special": true
+                }
+            ],
+            "actions": [
+                {
+                    "name": "Leader's strike",
+                    "cost": "light",
+                    "tags": [
+                        "attack",
+                        "range 3"
+                    ],
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: foe is sealed. Effect: An ally in range 3 can dash 2 spaces. Exceed: repeat the previous effect.",
+                    "altText": "Light attack, sealing foe and granting ally in range dash 2. (2 allies can dash on exceed)."
+                },
+                {
+                    "name": "Hold the Line!",
+                    "cost": "light",
+                    "tags": [
+                        "mark",
+                        "range 5"
+                    ],
+                    "text": "The Sergeant marks an ally in range. That ally gains regeneration and becomes sturdy. All these effects are lost if the mark is removed or replaced.",
+                    "altText": "Marked ally gains regeneration and sturdy until mark is lost."
+                },
+                {
+                    "name": "Arm Shot",
+                    "cost": "light",
+                    "tags": [
+                        "range 5"
+                    ],
+                    "text": "A foe in range takes 2 damage and a shot to the arm. After they next attack, they become unable to attack for their entire following turn.",
+                    "altText": "2 damage, foe cannot attack after their next attack."
+                },
+                {
+                    "name": "Martial Might",
+                    "cost": "light",
+                    "tags": [],
+                    "text": "This character gains the Discipline interrupt until the start of their next turn.",
+                    "altText": "Gain Discipline interrupt."
+                },
+                {
+                    "name": "Discipline",
+                    "cost": "Interrupt 1",
+                    "tags": [],
+                    "text": "Requires Martial Might. Trigger: An ally anywhere makes an attack roll, and the final result is determined. Effect: The Sergeant can use this interrupt to cause them to re-roll the attack with +1 boon, taking the second result as the final result instead.",
+                    "altText": "After Martial Might. Trigger: Ally determines attack roll result. Effect: Sergeant causes them to re-roll with +1 boon.",
+                    "altText2": "Martial Might -> Interrupt: Ally re-rolls attack with +1 boon."
+                }
+            ]
+        },
+        {
+            "name": "Decurion",
+            "also": [
+                "Sergeant"
+            ],
+            "tags": [
+                "Chapter 1+"
+            ],
+            "actions": [
+                {
+                    "name": "Leg Shot",
+                    "cost": "light",
+                    "tags": [
+                        "range 5"
+                    ],
+                    "text": "A foe in range takes 2 damage, then takes a shot to the leg. During their next turn, they can only move a maximum of 3 spaces. After they move 3 spaces, they become immobile for the rest of the turn.",
+                    "altText": "Deal 2 damage, foe cannot move more than 3 spaces next turn."
                 }
             ]
         }
