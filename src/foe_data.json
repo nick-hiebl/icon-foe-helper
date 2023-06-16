@@ -1955,7 +1955,7 @@
             "phaseDescription": "Phase change triggers at the start of each round. The Nocturnal starts in phase II and can shift up or down one phase (so it can't shift from I to III for example). It must shift phases.",
             "phases": [
                 {
-                    "name": "Phase I - Hard to hit, disrupt foes",
+                    "name": "Phase I - Swap foes, very mobile",
                     "actions": [
                         {
                             "name": "Lost and Alone",
@@ -1981,7 +1981,7 @@
                     "traits": []
                 },
                 {
-                    "name": "Phase II",
+                    "name": "Phase II - Shove foes around, split them up",
                     "actions": [
                         {
                             "name": "Amygdala",
@@ -1997,7 +1997,7 @@
                     "traits": []
                 },
                 {
-                    "name": "Phase III",
+                    "name": "Phase III - Slash foes",
                     "actions": [
                         {
                             "name": "Bloody Nightmare",
@@ -2006,7 +2006,7 @@
                                 "Round Action!"
                             ],
                             "text": "At the start of the round, the Nocturnal supernaturally slashes all foes. For the rest of the combat, all foes take 2 piercing damage at the start of their turns. This effect stacks.",
-                            "altText": "{50% hp divine damage}, otherwise light damage and shove 1. Non-lethal."
+                            "altText": "Slash all foes. They take 2 damage per turn afterwards."
                         },
                         {
                             "name": "Kidnap",

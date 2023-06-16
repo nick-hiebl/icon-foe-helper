@@ -41,11 +41,11 @@ const THE_GATE = ['Relict Soldier', 'Embalmer', 'Arc Spectre', 'Soul Spark']
 const CARELS_BRIGADIERS = ['Rogue', 'Sniper', 'Sledge', 'Skulk', 'Priest']
 const ENCROSS_PATROL = ['Decurion', 'Auxiliary', 'Imperial Warrior', 'Imperial Blaster', 'Imperial Pepperbox']
 const WELL_BEAST = ['Halitoad', 'Beast Soldier', 'Beast Blaster', 'Elite Beast Assassin']
-const DREAD_KNIGHT = ['Archon', 'Arc Spectre', 'Relict Skulk', 'Servitor', 'Husk']
+const DREAD_KNIGHT = ['Archon', 'Arc Spectre', 'Relict Skulk', 'Relict Soldier']
 const THE_WRETCH = ['Nocturnal']
 
 const initialState: State = {
-  foes: makeFoes(WELL_BEAST),
+  foes: makeFoes(THE_WRETCH),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,

@@ -3,3 +3,8 @@
   grid-template-columns: repeat(2, 1fr);
   max-width: 600px;
 }
+
+h4 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}

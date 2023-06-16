@@ -175,7 +175,7 @@ export const FoePhases = ({ foe }: Props) => {
       <ul>
         {legend.phases.map((phase) => (
           <li key={phase.name}>
-            <p><strong>{phase.name}</strong></p>
+            <h4><strong>{phase.name}</strong></h4>
             {phase.traits.length > 0 && (
               <TraitBlock traits={phase.traits} />
             )}

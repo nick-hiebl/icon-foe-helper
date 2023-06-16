@@ -22,11 +22,15 @@ function renderCost(action: Action) {
   return COST_MAP[action.cost]
 }
 
-const HIGHLIGHTED = {
-  backgroundColor: '#ff06',
-  border: '4px solid #ff06',
-  margin: '-4px',
-}
+const highlight = (color: string) => ({
+  backgroundColor: color,
+  border: `4px solid ${color}`,
+  margin: '16px -4px',
+})
+
+const HIGHLIGHTED = highlight('#ff06')
+
+const BLUE_HIGHLIGHT = highlight('#aef')
 
 const UNDERLINE = {
   textDecoration: 'underline',
@@ -43,6 +47,7 @@ const CLICKABLE = {
 export const FoeAction = ({ action }: Props) => {
   const [showingAlt, setAlt] = useState(false)
   const isInterrupt = action.cost.includes('errupt')
+  const isRoundAction = action.tags.includes('Round Action!')
 
   const hasAlt = !!action.altText
 
@@ -63,6 +68,7 @@ export const FoeAction = ({ action }: Props) => {
       style={{
         ...(hasAlt ? CLICKABLE : {}),
         ...(isInterrupt ? HIGHLIGHTED : {}),
+        ...(isRoundAction ? BLUE_HIGHLIGHT : {}),
         ...(showingAlt ? MINIMISED : {}),
       }}
       onClick={() => setAlt(hasAlt && !showingAlt)}
