@@ -130,6 +130,10 @@
             "altText": "After dying, 33% chance to revive at 25% hp on their turn, once."
         },
         {
+            "name": "Master of the Night",
+            "text": "The Nocturnal has aura 2. It has evasion and gains stealth if there are no other characters in the aura."
+        },
+        {
             "name": "Mob",
             "text": "This character doesn't trigger slay effects."
         },
@@ -148,6 +152,10 @@
         {
             "name": "Phasing",
             "text": "Can ignore obstruction and pass through, but not end your turn in, terrain, objects, or characters."
+        },
+        {
+            "name": "Pick Off",
+            "text": "Attacks gain +1 boon and can critical hit (+[D]) against foes with no allies adjacent."
         },
         {
             "name": "Primal Strength",
@@ -1760,37 +1768,49 @@
                     "name": "Blackheart",
                     "cost": "light",
                     "tags": [
+                        "attack",
                         "true strike",
-                        "melee attack"
+                        "combo!"
                     ],
-                    "text": "On hit: Deal [D] + fray. Miss: fray. Effect: Deals 2 damage to all foes adjacent to the archon or their target Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, dazed, or winded.",
-                    "altText": "Light attack. 2 damage splash around self and target. +1 boon per stunned, dazed, winded."
+                    "text": "On hit: Deal [D] + fray. Miss: fray. Effect: Gains +1 boon and deals bonus damage for each of the following: character is stunned, slashed, or weakened.",
+                    "altText": "Light attack. +1 boon per stunned, slashed, weakened."
                 },
                 {
-                    "name": "Iron Fist",
+                    "name": "Dark Edge",
+                    "cost": "heavy",
+                    "tags": [
+                        "attack",
+                        "medium blast",
+                        "combo!"
+                    ],
+                    "text": "On hit: 2[D] + fray and shove 2. Miss or area effect: [D] + fray and shove 1. Collide: Foe is weakened.",
+                    "altText": "Heavy attack with light on miss/AoE. Shoves and weaken colliding foes."
+                },
+                {
+                    "name": "Iron Blades",
                     "cost": "light",
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "Effect: An adjacent foe must save or become dazed, if they are already dazed, they are also winded.",
-                    "altText": "Adjacent. {Foe -> Dazed -> Winded}."
+                    "text": "Effect: An adjacent foe is slashed, if they are already slashed, they take 2 damage.",
+                    "altText": "Foe -> Slashed -> 2 damage."
                 },
                 {
                     "name": "Great Slam",
                     "cost": "light",
                     "tags": [],
-                    "text": "Dash 2 spaces, then all adjacent foes are shoved 1 space. Collide: foe is stunned.",
-                    "altText": "Dash 2 and shove adjacent foes."
+                    "text": "Rush 2 spaces, then all adjacent foes are shoved 1 space. Collide: foe is weakened.",
+                    "altText": "Rush 2 and shove adjacent foes."
                 },
                 {
                     "name": "Great Shieldwall",
                     "cost": "light",
                     "tags": [
                         "stance",
-                        "recharge 5+"
+                        "usable when bloodied"
                     ],
-                    "text": "While in this stance, becomes immobile, but self and adjacent allies gain resistance. Ends at the start of the Archon's next turn.",
-                    "altText": "Immobile. Aura 1 resistance. Lasts until next turn."
+                    "text": "While in this stance, becomes immobile, but self and adjacent allies gain +1 curse and adjacent allies have resistance. Ends at the start of the Archon's next turn.",
+                    "altText": "Immobile. Aura 1 +1 curse to attackers. Lasts until next turn."
                 }
             ],
             "tags": [
@@ -1805,12 +1825,12 @@
                     "special": true
                 },
                 {
-                    "name": "Great Enrage",
+                    "name": "Enrage",
                     "special": true
                 },
                 {
-                    "name": "Armor X",
-                    "value": "3"
+                    "name": "Sturdy",
+                    "special": true
                 }
             ]
         },
@@ -1840,43 +1860,79 @@
         },
         {
             "name": "Nocturnal",
+            "stats": {
+                "hp": 50
+            },
             "actions": [
                 {
                     "name": "Juggernaut",
                     "cost": "free",
                     "tags": [
-                        "1/round"
+                        "Round Action!"
                     ],
-                    "text": "Clear a status, mark, or all blights affecting this character."
+                    "text": "At the start of the round, this character may clear a status or mark."
+                },
+                {
+                    "name": "Crippling Paranoia",
+                    "cost": "free",
+                    "tags": [
+                        "Round Action!"
+                    ],
+                    "text": "At the start of the round, the Nocturnal chooses a foe. At the end of the round, that foe deals 6 damage to all allies in adjacent spaces and dazes them, then the nocturnal can shove them 1 in any direction.",
+                    "altText": "Mark a foe who will do 6 damage to adjacent allies at the end of the round."
+                },
+                {
+                    "name": "The Pain",
+                    "cost": "light",
+                    "tags": [
+                        "attack",
+                        "range 3",
+                        "true strike",
+                        "combo 1!"
+                    ],
+                    "text": "Effect: Teleport 1. Attack: On hit: [D] + fray and shove 1. Miss: fray damage. Effect: Teleport 1.",
+                    "altText": "Teleport, light attack, shove, teleport."
+                },
+                {
+                    "name": "The Agony",
+                    "cost": "light",
+                    "tags": [
+                        "attack",
+                        "range 5",
+                        "combo 2!"
+                    ],
+                    "text": "On hit: 3 piercing damage, three times. Miss: 3 piercing damage once.",
+                    "altText": "Hit: 3x 3 pierce. Miss: 3 pierce."
                 },
                 {
                     "name": "The Horror",
-                    "cost": "light",
+                    "cost": "heavy",
                     "tags": [
-                        "melee attack"
+                        "attack",
+                        "combo 3!"
                     ],
-                    "text": "On hit: [D] + fray and shove 1. Miss: fray damage. Effect: May teleport up to 3 spaces before or after the attack.",
-                    "altText": "Light + shove 1. Teleport 3 before or after."
+                    "text": "On hit: 2[D] + fray. Miss [D] + fray. Effect: Deals 2 damage again to the target for each that is true: bloodied, blinded, dazed.",
+                    "altText": "Heavy / light. 2 per bloodied, blinded, dazed."
                 },
                 {
-                    "name": "Rake",
+                    "name": "Bloody Slash",
                     "cost": "light",
                     "tags": [
                         "area effect",
-                        "line 4",
-                        "repeatable"
+                        "line 4"
                     ],
-                    "text": "Foes in the area take fray damage. The Nocturnal may teleport to any space in the area after this action resolves.",
-                    "altText": "Line 4 fray. Teleport into the line."
+                    "text": "Area effect: Foes in the area take 2 damage once for every foe in the line, up to three times. The Nocturnal may teleport to any space in the area after this ability resolves.",
+                    "altText": "Line 4, damage per foe in the line. Teleport into the line."
                 },
                 {
-                    "name": "Disappear",
-                    "cost": "heavy",
+                    "name": "Great Fell Shot",
+                    "cost": "light",
                     "tags": [
-                        "1/round"
+                        "range 4",
+                        "2/round"
                     ],
-                    "text": "Remove the Nocturnal from the battlefield and place them in any free space.",
-                    "altText": "Free Teleport X."
+                    "text": "Choose two free spaces in range. Characters that enter that space or end their turn there are struck by a projectile, taking 3 piercing damage twice, and ending this effect. This lasts until triggered.",
+                    "altText": "Plant two stalagtites to fall on characters entering the space."
                 }
             ],
             "also": [
@@ -1888,7 +1944,11 @@
                     "special": true
                 },
                 {
-                    "name": "Hunter in the Mist",
+                    "name": "Pick Off",
+                    "special": true
+                },
+                {
+                    "name": "Master of the Night",
                     "special": true
                 }
             ],
@@ -1898,71 +1958,64 @@
                     "name": "Phase I - Hard to hit, disrupt foes",
                     "actions": [
                         {
-                            "name": "Paranoia",
+                            "name": "Lost and Alone",
                             "cost": "light",
                             "tags": [
-                                "multi mark",
-                                "1/round"
+                                "range 3",
+                                "2/round"
                             ],
-                            "text": "A foe in range 6 is marked. While marked, they cannot target allies with abilities and effects. A character can save at the end of their turn to clear this mark, ending it on a success.",
-                            "altText": "Foe in range 6 marked to not trust allies."
+                            "text": "The Nocturnal swaps the places of two foes in range 3 of the Nocturnal and each other, removing and placing them. One foe is dazed.",
+                            "altText": "Swap two foes in range and daze one."
                         },
                         {
-                            "name": "Amygdala",
+                            "name": "Assassinate",
                             "cost": "light",
                             "tags": [
+                                "range 3",
                                 "1/round"
                             ],
-                            "text": "All foes in range 3 are forced to flee. They must save or be shoved 2 spaces in a direction of the Nocturnal's choice. At the start of their next turn, even if they saved successfully, the Nocturnal can shove them 2 in a direction of its choice.",
-                            "altText": "Range 3 effect. {Shoved 2 spaces by Nocturnal}. Targets shoved 2 on their turn."
+                            "text": "The Nocturnal chooses a foe in range 3 that has not yet acted this round. At the end of that foe's turn, as long as they're in range 3, teleport to any space adjacent to them, deal 2 damage, three times to them, and blind them. Reduce this damage to just 2 damage if they have an adjacent ally, then fly 1.",
+                            "altText": "Mark a target who has not acted, at the end of their turn, teleport to them and deal damage if in range 3."
                         }
                     ],
-                    "traits": [
-                        {
-                            "name": "Clinging Mists"
-                        }
-                    ]
+                    "traits": []
                 },
                 {
                     "name": "Phase II",
                     "actions": [
                         {
-                            "name": "Great Fell Shot",
+                            "name": "Amygdala",
                             "cost": "light",
                             "tags": [
+                                "range 2",
                                 "2/round"
                             ],
-                            "text": "Mark two unoccupied spaces in range 8. Area effect: Characters that enter that space or start their turn there are struck by a projectile, taking 3 damage twice, and ending this effect. This area lasts until triggered.",
-                            "altText": "Prep 2 spaces in range 8 to deal 3 damage twice."
+                            "text": "All foes in range are inflicted with supernatural fear. They must save or be shoved 3 spaces in a direction of the Nocturnal's choice, or 1 space on a successful save.",
+                            "altText": "Range 2 effect. {Shoved 3} / Shoved 1."
                         }
                     ],
-                    "traits": [
-                        {
-                            "name": "Blood drain"
-                        }
-                    ]
+                    "traits": []
                 },
                 {
                     "name": "Phase III",
                     "actions": [
                         {
-                            "name": "Embrace",
-                            "cost": "heavy",
+                            "name": "Bloody Nightmare",
+                            "cost": "free",
                             "tags": [
-                                "1/round"
+                                "Round Action!"
                             ],
-                            "text": "An adjacent foe must save. On a successful save, they are shoved 1 and take [D] + fray. On a failed save, they take divine damage equal to 50% of their max hp. Either way, this attack can't take them below 1 hp.",
+                            "text": "At the start of the round, the Nocturnal supernaturally slashes all foes. For the rest of the combat, all foes take 2 piercing damage at the start of their turns. This effect stacks.",
                             "altText": "{50% hp divine damage}, otherwise light damage and shove 1. Non-lethal."
                         },
                         {
-                            "name": "Open Wound",
+                            "name": "Kidnap",
                             "cost": "light",
                             "tags": [
-                                "multimark",
-                                "1/ round"
+                                "2/round"
                             ],
-                            "text": "A foe in range 4 is marked. While marked, when that foe is shoved, they take fray damage. A foe can save against this effect at the end of their turn, ending the mark.",
-                            "altText": "Foe in range 4 marked to take fray when shoved."
+                            "text": "The Nocturnal dashes 4. A foe adjacent to any point during its dash is removed from the battlefield, then placed adjacent when it finishes its movement. Foes can save to avoid this effect, but are dazed on a successful effect.",
+                            "altText": "Dash 4, foes dashed past are {pulled} / dazed."
                         }
                     ],
                     "traits": []
