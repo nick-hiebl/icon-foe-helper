@@ -151,7 +151,7 @@
         },
         {
             "name": "Primal Strength",
-            "text": "When a brawler beast causes a character to collide, that character is dazed."
+            "text": "All the beast's abilities have collide: foes are weakened. Weakened foes take 2 damage on collide instead, and the beast gains 2 vigor."
         },
         {
             "name": "Rampart",
@@ -225,7 +225,7 @@
         },
         {
             "name": "Stench",
-            "text": "This beast has aura 1. Characters in the aura have +1 curse on attacks and saves, and are poisoned if they end their turn there. Poisoned foes treat the area as dangerous terrain."
+            "text": "This beast has aura 1. Characters in the aura take +1 curse on attacks and saves."
         },
         {
             "name": "Sturdy",
@@ -1475,6 +1475,20 @@
             ]
         },
         {
+            "name": "Beast Soldier",
+            "also": [
+                "Soldier",
+                "_ruinbeast"
+            ]
+        },
+        {
+            "name": "Beast Blaster",
+            "also": [
+                "Blaster",
+                "_ruinbeast"
+            ]
+        },
+        {
             "name": "Brawler Beast",
             "actions": [
                 {
@@ -1482,29 +1496,29 @@
                     "cost": "light",
                     "tags": [
                         "true strike",
-                        "melee attack"
+                        "attack"
                     ],
-                    "text": "On hit: [D] + fray. Miss: fray. Effect: Shove 1. If either foe or this character is bloodied, increase shove to 3.",
+                    "text": "On hit: [D] + fray. Miss: fray. Effect: Shove 1. If the beast or its target is bloodied, increase shove to 3.",
                     "altText": "Light attack. Shove 1, 3 if anyone bloodied."
                 },
                 {
-                    "name": "Rampage",
+                    "name": "Wild Toss",
                     "cost": "light",
                     "tags": [
                         "repeatable"
                     ],
-                    "text": "Effect: The beast dashes up to 2 spaces. When it ends this movement, adjacent foes take 2 damage and is shoved 1.",
-                    "altText": "Dash 2, 2 damage and shove 1 to adjacent foes."
+                    "text": "The beast hurls an adjacent ally, removing them from the battlefield, then placing them in range 3. That ally deals 2 damage to adjacent foes when landing.",
+                    "altText": "Hurl adjacent ally and replace in range 3. Landing deals 2 damage to adjacent foes."
                 },
                 {
-                    "name": "Charge",
-                    "cost": "light",
+                    "name": "Barreling Charge",
+                    "cost": "heavy",
                     "tags": [
-                        "end turn",
-                        "recharge 4+"
+                        "range 2",
+                        "end turn"
                     ],
-                    "text": "Effect: The beast chooses a foe in range 2. At the end of that foe's next turn, the beast dashes up to 5 spaces towards that foe, phasing through characters. Characters the beast passes through are shoved 1 to either side and take fray damage. If the beasts ends this movement adjacent to their foe, that foe must save or take 2[D] + fray and become stunned, or [D] + fray only on a successful save. Effect: This ability has no recharge if the beast is bloodied.",
-                    "altText": "Charge marked foe in range 5 at the end of their next turn. {Heavy damage + stun} / light damage. No recharge if bloodied."
+                    "text": "Effect: The beast chooses a foe in range and becomes sturdy. At the end of that foe's next turn, the beast rushes up to 4, with each space moving towards that foe, phasing through characters. Characters the beast passes through are shoved 1 to either side and take 2 damage. If the beast ends this movement adjacent to their foe, that foe must is weakened and must save or take 2[D] + fray and become stunned, or [D] + fray on a successful save. Then, this effect ends.",
+                    "altText": "Choose a foe in range and become sturdy. Rush 4 to foe at the end of their next turn. If adjacent to target, weaken and {Heavy damage + stun} / light damage."
                 }
             ],
             "also": [
@@ -1513,12 +1527,12 @@
             ],
             "traits": [
                 {
-                    "name": "Armor X",
-                    "value": "3"
-                },
-                {
                     "name": "Size X",
                     "value": "2"
+                },
+                {
+                    "name": "Primal Strength",
+                    "special": true
                 }
             ]
         },
@@ -1526,11 +1540,20 @@
             "name": "Halitoad",
             "actions": [
                 {
-                    "name": "Tongue Lash",
+                    "name": "Wild Toss",
                     "cost": "light",
                     "tags": [],
-                    "text": "A foe in range 4 takes fray damage, then must save or become poisoned and shoved as far as possible towards the Halitoad. Poisoned characters fail the save. Effect: Range 8 while bloodied.",
-                    "altText": "Range 4 (8 while bloodied), fray damage. {Poisoned, shoved towards Halitoad}."
+                    "text": "-"
+                },
+                {
+                    "name": "Tongue Flick",
+                    "cost": "light",
+                    "tags": [
+                        "range 3",
+                        "repeatable"
+                    ],
+                    "text": "The toad shoves a character in range one space towards it, or 3 spaces if the toad or its target is bloodied.",
+                    "altText": "Pull 1 or 3 if either bloodied."
                 }
             ],
             "also": [
@@ -1676,38 +1699,42 @@
             ]
         },
         {
-            "name": "Dervish",
+            "name": "Assassin",
             "actions": [
                 {
                     "name": "Razor Wind",
                     "cost": "light",
                     "tags": [
-                        "melee attack"
+                        "attack"
                     ],
-                    "text": "Repeat the following effect three times: Dash 1, then deal 2 damage to all adjacent foes. Must move in the same direction.",
-                    "altText": "3x Dash 1 (in a line) and 2 damage to adjacent foes."
+                    "text": "On hit: [D]. Miss: 1 damage. Effect: Repeat the following effect twice: Dash 1, then area effect: medium blast (self): 2 damage.",
+                    "altText": "Hit: [D], miss: 1. Then twice: Dash 1, self medium blast 2 damage."
                 },
                 {
                     "name": "Gust",
                     "cost": "light",
-                    "tags": [],
-                    "text": "The Dervish or an ally in range 2 may fly 2."
+                    "tags": [
+                        "range 2"
+                    ],
+                    "text": "The Assassin or an ally in range may fly 2."
                 },
                 {
-                    "name": "Thousand cuts",
-                    "cost": "heavy",
+                    "name": "Assassinate",
+                    "cost": "light",
                     "tags": [
-                        "recharge 5+"
+                        "range 3",
+                        "end turn"
                     ],
-                    "text": "Repeat the following effect four times: Effect: Teleport 1, then deal 2 damage to all adjacent foes. Must teleport to a different space each time.",
-                    "altText": "4x Teleport 1 and 2 damage to adjacent foes."
+                    "text": "The Assassin chooses a foe in range. At the end of that foe's turn, as long as they're in range 3, teleport to any space adjacent to them, deal 2 damage, three times to them, and blind them. Reduce this damage to just 2 damage if they have an adjacent ally. Then, fly 1.",
+                    "altText": "Mark a foe, at the end of their turn, if in range, teleport to them, damage and blind them. Then fly 1."
                 }
             ],
             "tags": [
                 "basic"
             ],
             "also": [
-                "_yellow"
+                "_yellow",
+                "_ruinbeast"
             ],
             "traits": [
                 {
@@ -1716,9 +1743,9 @@
             ]
         },
         {
-            "name": "Elite Dervish",
+            "name": "Elite Beast Assassin",
             "also": [
-                "Dervish"
+                "Assassin"
             ],
             "traits": [
                 {

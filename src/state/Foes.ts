@@ -40,12 +40,12 @@ function makeFoes(names: string[]): FoeInfo[] {
 const THE_GATE = ['Relict Soldier', 'Embalmer', 'Arc Spectre', 'Soul Spark']
 const CARELS_BRIGADIERS = ['Rogue', 'Sniper', 'Sledge', 'Skulk', 'Priest']
 const ENCROSS_PATROL = ['Decurion', 'Auxiliary', 'Imperial Warrior', 'Imperial Blaster', 'Imperial Pepperbox']
-const WELL_BEAST = ['Halitoad', 'Howler', 'Gulper', 'Elite Dervish']
+const WELL_BEAST = ['Halitoad', 'Beast Soldier', 'Beast Blaster', 'Elite Beast Assassin']
 const DREAD_KNIGHT = ['Archon', 'Arc Spectre', 'Relict Skulk', 'Servitor', 'Husk']
 const THE_WRETCH = ['Nocturnal']
 
 const initialState: State = {
-  foes: makeFoes(ENCROSS_PATROL),
+  foes: makeFoes(WELL_BEAST),
   focusedId: undefined,
   manualEditMode: false,
   transientEditMode: false,
